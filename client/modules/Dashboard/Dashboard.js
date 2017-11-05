@@ -18,7 +18,7 @@ var config ={
 };
 var config1={
 
-    baseURL : 'http://localhost:3000'
+    baseURL : 'http://ec2-18-220-175-111.us-east-2.compute.amazonaws.com'
 };
 
 export default class Dashboard extends Component {
@@ -449,12 +449,7 @@ export default class Dashboard extends Component {
               </section>
             </div>
         }
-        <div className="dashboard-footer">
-          <a href="http://indiaopendata.com/" target="_blank" className="title">An India Open Data Association
-            Initiative</a>
-          <a href="https://oizom.com/" target="_blank" className="regards">Made with <i
-            className="white fa fa-heart"></i> Oizom</a>
-        </div>
+
 
       </div>
     )

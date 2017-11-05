@@ -39,7 +39,7 @@ export default class Map extends Component {
       let pin = new google.maps.Marker({
         position: loc,
         map: map,
-        icon: this.getMarkerImage(marker.aqi)
+        icon: this.getMarkerImage(marker.pumpConditionBucket)
       });
       pin.addListener('mouseover',function () {
         infowindow.setContent(this.renderInfoWindow(marker));
@@ -49,9 +49,10 @@ export default class Map extends Component {
           this.props.setDisable(false,  marker.loc, marker.deviceType);
           this.props.callRealtime(marker.deviceId, marker.t);
           this.props.callAnalytics(marker.deviceId, marker.t)
-      }.bind(this))
+      }.bind(this));
       return pin
-    })
+    });
+
 
     //render cluster
     var markerCluster = new MarkerClusterer(this.map, pins);
@@ -62,6 +63,7 @@ export default class Map extends Component {
    var html ='<div class="infowindow-content">'
             +'<div class="infowindow-head">'
             +'<strong>'+marker.label+'</strong>'
+            +'<span id="info-window-head-last-updated">'+this.displayTime(marker.payload.d.t)+'</span>'
             +'</div>'
             +'<div class="infowindow-body">'
             +'<div class="left-content">'
@@ -116,25 +118,16 @@ export default class Map extends Component {
     }
   }
 
-  getMarkerImage(aqi) {
+  getMarkerImage(pumpConditionBucket) {
     //rendering images as per aqi's valye
-    if (aqi <= 50) {
-      return 'assets/images/pins/good.svg'
+    if (pumpConditionBucket =="satisfactory") {
+      return 'assets/images/pins/Up.png'
     }
-    else if (aqi > 50 && aqi < 101) {
-      return 'assets/images/pins/satisfactory.svg'
-    }
-    else if (aqi > 100 && aqi < 201) {
-      return 'assets/images/pins/moderate.svg'
-    }
-    else if (aqi > 200 && aqi < 301) {
-      return 'assets/images/pins/poor.svg'
-    }
-    else if (aqi > 300 && aqi < 401) {
-      return 'assets/images/pins/very-poor.svg'
+    else if (pumpConditionBucket=="fair") {
+      return 'assets/images/pins/Caution.png'
     }
     else {
-      return 'assets/images/pins/severe.svg'
+      return 'assets/images/pins/Alarm.png'
     }
   }
 
@@ -174,4 +167,21 @@ export default class Map extends Component {
       </div>
     )
   }
+
+    displayTime(unixtime) {
+        let a = new Date(unixtime * 1000)
+
+        var year = a.getFullYear().toString().substr(2, 2);
+        var month = a.getMonth() + 1;
+        var date = a.getDate();
+        var hour = a.getHours();
+        var min = a.getMinutes();
+        if (min<=9){
+
+          min="0"+min;
+        }
+        var ampm = hour >= 12 ? 'pm' : 'am'
+        let displayTime = hour + ':' + min + " " + ampm + " " + date + "-" + month + "-" + year;
+        return displayTime
+    }
 }

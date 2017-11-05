@@ -547,10 +547,15 @@ progress[value="10"]:after {
   font-size: 23px;
   text-transform: uppercase;
 }
+.gases-details .row{
+
+  margin:0px !important;
+}
 
 .gases-details{
   background: #586067;
   width: 100%;
+  color:white;
   //height: 230px;
   //height: 164px;
   border-radius: 4px;
@@ -595,9 +600,16 @@ progress[value="10"]:after {
   margin-left: 20px;
 }
 
+span#info-window-head-last-updated {
+
+  color: white;
+  float: right;
+}
+
 .gases-info{
   height: 86px;
   overflow-y: scroll;
+  color:white;
 
   h5{
     color: white;
@@ -937,7 +949,29 @@ progress[value="10"]:after {
     //border-right: solid 10px transparent;
   background: url('../assets/images/arrow.png');
 }
+.fa-water_consumption{
 
+  width:16px !important;
+}
+
+.fa-water_level{
+
+  width: 21px !important;
+}
+.fa-people_used{
+
+  width: 19px !important;
+}
+.fa-usage{
+
+  width:23px !important;
+}
+
+.icon_desc_small_box{
+
+  color:white;
+  display:inline-block;
+}
 .infowindow-content
 {
   position: relative;
@@ -947,13 +981,30 @@ progress[value="10"]:after {
   padding-bottom: 20px;
   .left-content{
     position: relative;
-    padding-right: 100px;
+    padding-right: 0px;
   }
   .left-content > div {
     margin-bottom: 10px;
   }
   .left-content .fa {
     margin-right: 10px;
+  }
+  .fa-water_consumption{
+
+    width:16px !important;
+  }
+
+  .fa-water_level{
+
+    width: 21px !important;
+  }
+  .fa-people_used{
+
+    width: 19px !important;
+  }
+  .fa-usage{
+
+    width:23px !important;
   }
   .aqi{
     position: absolute;

@@ -28,13 +28,17 @@ export default class LatestDevice extends Component {
   }
 
   displayTime() {
-    let a = new Date(this.props.time * 1000)
+    let a = new Date(this.props.realtimeData[0].payload.d.t * 1000)
 
     var year = a.getFullYear().toString().substr(2, 2);
     var month = a.getMonth() + 1;
     var date = a.getDate();
     var hour = a.getHours();
     var min = a.getMinutes();
+    if (min<=9){
+
+        min="0"+min;
+    }
     var ampm = hour >= 12 ? 'pm' : 'am'
     let displayTime = hour + ':' + min + " " + ampm + " " + date + "-" + month + "-" + year;
     return displayTime
@@ -165,6 +169,14 @@ export default class LatestDevice extends Component {
               <div className="last-updated">
                 <span>Last Updated: {this.displayTime()}</span>
               </div>
+                <div class="infowindow-body">
+                <div class="left-content">
+                    <div>
+                       <div className="icon_desc_small_box" style={{marginLeft: "0px",marginTop:"30px"}}><i className="fa fa-water_consumption" style={{color: "#73C076"}}></i> <br />{latestDevice.payload.d.waterConsumption}</div>
+                        <div className="icon_desc_small_box" style={{marginLeft: "20px"}}><i className="fa fa-people_used" style={{color: "#73C076"}}></i><br />{latestDevice.payload.d.peopleUsed}</div>
+                        <div className="icon_desc_small_box" style={{marginLeft: "20px"}}><i className="fa fa-usage"  style={{color: "#73C076"}}></i><br />{latestDevice.payload.d.usage}</div>
+                        </div>
+                    </div></div>
             </div>
 
             <div className="gases-details">
@@ -180,7 +192,7 @@ export default class LatestDevice extends Component {
               ?
                 <GraphView
                   analysisData={this.props.analysisData}
-                  time={this.props.time}
+                  time={this.props.realtimeData[0].payload.d.t}
                   activeGraph = {this.state.activeGraph}
                   changeGraphData = {this.changeGraphData}
                   fromDate={this.props.fromDate}

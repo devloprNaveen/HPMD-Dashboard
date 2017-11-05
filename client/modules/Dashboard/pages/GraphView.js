@@ -350,7 +350,7 @@ export default class GraphView extends Component {
                       id={list}
                       key={list}
                       className={index===0 ? 'active' : ''}
-                    >{list == 'co' ? list : list}</li>
+                    >{list == 'waterConsumption' ? "Water Consumption" : list=="peopleUsed"?"People Used":list=="usage"?"Usage":list}</li>
                   )
                 })
               }
@@ -375,7 +375,10 @@ export default class GraphView extends Component {
           </div>
 
           <div className="chart-description">
-            <DropdownButton title={this.state.gasesInfo} id="chart-info-dropdown">
+            <DropdownButton title={this.state.gasesInfo=="waterConsumption"?"Water Consumption":
+                this.state.gasesInfo=="peopleUsed"?"People Used":
+                    this.state.gasesInfo=="usage"?"Usage":this.state.gasesInfo
+            } id="chart-info-dropdown">
               <MenuItem eventKey="1" onSelect={()=>{this.setState({gasesInfo : 'waterConsumption'})}}>Water Consumption</MenuItem>
               <MenuItem eventKey="2" onSelect={()=>{this.setState({gasesInfo : 'peopleUsed'})}}>People Used</MenuItem>
               <MenuItem eventKey="3" onSelect={()=>{this.setState({gasesInfo : 'usage'})}}>Usage</MenuItem>

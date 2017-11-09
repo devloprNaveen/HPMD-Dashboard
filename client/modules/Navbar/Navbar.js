@@ -13,7 +13,7 @@ export default class Demo extends Component{
         <Navbar inverse fluid fixedTop>
           <Header>
             <Brand>
-              <Link to="/">CAYA</Link>
+              <Link to="/">Handpump Monitoring Project</Link>
             </Brand>
             <Toggle />
           </Header>

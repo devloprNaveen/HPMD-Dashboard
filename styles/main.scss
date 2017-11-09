@@ -186,7 +186,7 @@ a.regards:hover, .dashboard-footer a.title:hover{
 
 .select-cities-box{
   position: absolute;
-  width: 250px;
+  width: 500px;
   top: 5%;
   left: 2%;
 }
@@ -194,6 +194,7 @@ a.regards:hover, .dashboard-footer a.title:hover{
 .select-cities{
   height: 30px;
   color: #00b3bf;
+
 }
 
 .open-panel{
@@ -221,6 +222,7 @@ a.regards:hover, .dashboard-footer a.title:hover{
   //width: 365px;
   width: 1000px;
   transition:  all ease 4s;
+  z-index:100;
 }
 
 .review-panel .panel-heading{
@@ -599,7 +601,36 @@ progress[value="10"]:after {
 #chart-info-dropdown .caret{
   margin-left: 20px;
 }
+div.footer {
+  padding: 10px 10px;
+  text-align: center;
+  line-height: 30px;
+  width: 50%;
+  height: 50px;
+  background: #000;
+  position: fixed;
+  bottom: 0px;
+  left: 50%;
+  margin-left: -25%;
+}
+.pumpicon {
+  /* height: 70%; */
+  /* vertical-align: middle; */
+  /* margin-top: 3%; */
+  /* height: 100%; */
+  display: inline-block;
+  /* vertical-align: bottom; */
+  text-align: center;
+  color: white;
+  margin-right: 15px;
+  font-size:12px;
 
+  /* margin-left: 10px; */
+}
+img.legend-icon {
+  height: 30px;
+  margin-right: 5px;
+}
 span#info-window-head-last-updated {
 
   color: white;
@@ -1167,6 +1198,13 @@ span#info-window-head-last-updated {
     font-size: 12px;
   }
 }
+
+select.select-cities {
+  display: inline-block;
+  width: 48%;
+  margin-right: 5px;
+}
+
 .rdtPicker {
   display: none;
   position: absolute;

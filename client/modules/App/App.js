@@ -27,7 +27,7 @@ export class App extends Component {
       <div>
         <div>
           <Helmet
-            title="Open Environment Data Project - India Open Data Association"
+            title="Handpump Monitoring Project"
             titleTemplate="%s"
             meta={[
               { charset: 'utf-8' },

@@ -25,7 +25,8 @@ export default class Dashboard extends Component {
   constructor(props) {
     super(props)
     this.state = this.getState()
-    this.changeCities = this.changeCities.bind(this)
+    this.changeCities = this.changeCities.bind(this);
+    this.changeStates=this.changeStates.bind(this);
     this.openPanel = this.openPanel.bind(this)
     this.closePanel = this.closePanel.bind(this)
     this.changeTab = this.changeTab.bind(this)
@@ -61,6 +62,7 @@ export default class Dashboard extends Component {
       no_records: false,
       iscity_changed: false,
       city_list: [],
+        state_list:[],
       marker_id: '',
       fromDate:'',
       toDate: '',
@@ -86,7 +88,7 @@ export default class Dashboard extends Component {
         console.log(error);
       });
 
-    axios.get('/all/public/devices/citiesloc',config).then(function (response) {
+    axios.get('/dashboard/get_district',config1).then(function (response) {
       if(response) {
         this.setState({city_list: response.data})
       }
@@ -94,6 +96,14 @@ export default class Dashboard extends Component {
       .catch(function (error) {
         console.log(error);
       });
+      axios.get('/dashboard/get_state',config1).then(function (response) {
+          if(response) {
+              this.setState({state_list: response.data})
+          }
+      }.bind(this))
+          .catch(function (error) {
+              console.log(error);
+          });
 
     // superagent.get('https://openenvironment.p.mashape.com/all/public/devices').set('X-Mashape-Key', 'SPmv0Z46zymshRjsWckXKsA09OBrp14RCeSjsniWIpRk6llTuk').end(function (err, res) {
     //   this.setState({loading: false, markers: res.body})
@@ -106,6 +116,21 @@ export default class Dashboard extends Component {
 
   changeCities(e) {
     this.setState({city: e.target.value, iscity_changed: true})
+  }
+
+  changeStates(e){
+
+      this.setState({stateid: e.target.value, isstate_changed: true})
+
+      axios.get('/dashboard/get_district?state_id='+e.target.value,config1).then(function (response) {
+          if(response) {
+              this.setState({city_list: response.data})
+          }
+      }.bind(this))
+          .catch(function (error) {
+              console.log(error);
+          });
+
   }
 
   openPanel() {
@@ -261,18 +286,31 @@ export default class Dashboard extends Component {
                   onMarkerClick={this.handleMarkerClick}
                   onMarkerClose={this.handleMarkerClose}
                 />
+
                 <div className="select-cities-box">
                   <FormGroup controlId="formControlsSelect">
                     <FormControl componentClass="select" placeholder="select" ref="cityList" className="select-cities"
-                                 onChange={this.changeCities}>
-                      <option value="India">India</option>
+                                 onChange={this.changeStates}>
+                      <option value="-1">India</option>
                       {
-                        this.state.city_list.map((element, index)=> {
+                        this.state.state_list.map((element, index)=> {
                           return (
-                            <option key={index} value={index}>{element.name}</option>
+                            <option key={index} value={element.id}>{element.name}</option>
                           )
                         })
                       }
+
+                    </FormControl>
+                    <FormControl componentClass="select" placeholder="select" ref="cityList" className="select-cities"
+                                 onChange={this.changeCities}>
+                      <option value=""></option>
+                        {
+                            this.state.city_list.map((element, index)=> {
+                                return (
+                                    <option key={index} value={index}>{element.name}</option>
+                                )
+                            })
+                        }
 
                     </FormControl>
                   </FormGroup>
@@ -445,7 +483,28 @@ export default class Dashboard extends Component {
                     null
 
                 }
-
+                <div className="footer">
+                  <span className="pumpicon">
+                    <span><img src="http://ec2-18-220-175-111.us-east-2.compute.amazonaws.com:8080/assets/images/pins/Up.png" className="legend-icon" /></span>
+                    <span>Pump Functional</span>
+                  </span>
+                  <span className="pumpicon">
+                    <span><img src="http://ec2-18-220-175-111.us-east-2.compute.amazonaws.com:8080/assets/images/pins/Caution.png" className="legend-icon" /></span>
+                    <span>Needs Attention</span>
+                  </span>
+                  <span className="pumpicon">
+                    <span><img src="http://ec2-18-220-175-111.us-east-2.compute.amazonaws.com:8080/assets/images/pins/Alarm.png" className="legend-icon" /></span>
+                    <span>Pump Off</span>
+                  </span>
+                  <span className="pumpicon">
+                    <span><img src="http://ec2-18-220-175-111.us-east-2.compute.amazonaws.com:8080/assets/images/pins/Repair.png" className="legend-icon" /></span>
+                    <span>Pump Repair</span>
+                  </span>
+                  <span className="pumpicon">
+                    <span><img src="http://ec2-18-220-175-111.us-east-2.compute.amazonaws.com:8080/assets/images/icons/Sensor.png" className="legend-icon" /></span>
+                    <span>Sensor Offline</span>
+                  </span>
+                </div>
               </section>
             </div>
         }

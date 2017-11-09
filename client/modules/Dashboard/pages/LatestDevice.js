@@ -172,9 +172,9 @@ export default class LatestDevice extends Component {
                 <div class="infowindow-body">
                 <div class="left-content">
                     <div>
-                       <div className="icon_desc_small_box" style={{marginLeft: "0px",marginTop:"30px"}}><i className="fa fa-water_consumption" style={{color: "#73C076"}}></i> <br />{latestDevice.payload.d.waterConsumption}</div>
+                       <div className="icon_desc_small_box" style={{marginLeft: "0px",marginTop:"30px"}}><i className="fa fa-water_consumption" style={{color: "#73C076"}}></i> <br />{latestDevice.payload.d.waterConsumption}L</div>
                         <div className="icon_desc_small_box" style={{marginLeft: "20px"}}><i className="fa fa-people_used" style={{color: "#73C076"}}></i><br />{latestDevice.payload.d.peopleUsed}</div>
-                        <div className="icon_desc_small_box" style={{marginLeft: "20px"}}><i className="fa fa-usage"  style={{color: "#73C076"}}></i><br />{latestDevice.payload.d.usage}</div>
+                        <div className="icon_desc_small_box" style={{marginLeft: "20px"}}><i className="fa fa-usage"  style={{color: "#73C076"}}></i><br />{latestDevice.payload.d.usage}h</div>
                         </div>
                     </div></div>
             </div>

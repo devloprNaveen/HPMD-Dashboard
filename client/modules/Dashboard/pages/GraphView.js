@@ -26,9 +26,11 @@ export default class GraphView extends Component {
       aqiArray: {'waterConsumption': [], 'peopleUsed': [], 'usage': []},
       chartList: ['waterConsumption', 'peopleUsed', 'usage'],
       gasesInfo: 'waterConsumption',
+        dataUnit:'daily',
       dump:false
     };
     this.displayGraph = this.displayGraph.bind(this)
+      this.changeDataUnit=this.changeDataUnit.bind(this);
     this.renderChartOnData = this.renderChartOnData.bind(this)
   }
 
@@ -304,6 +306,7 @@ export default class GraphView extends Component {
         }
       }
     }
+    this.setState({dataUnit:this.props.dataUnit});
 
   }
 
@@ -315,7 +318,7 @@ export default class GraphView extends Component {
       else {
         document.getElementById(e).className = ''
       }
-    })
+    });
 
     chart.series.map((e)=> {
       if (e.name == tabName) {
@@ -324,15 +327,26 @@ export default class GraphView extends Component {
       else {
         e.setVisible(false)
       }
-    })
+    });
 
 
+      this.setState({gasesInfo : tabName});
   }
 
+  changeDataUnit(unit){
+
+    this.props.changeDataUnit(unit);
+  }
   render() {
+
     return (
       <div >
         <div className="analytics-div">
+          <ul className="chart-list list-inline" id="class-list1">
+            <li id="daily" onClick={()=>this.changeDataUnit("daily")} className={this.state.dataUnit=="daily"?"active":""}>DAILY</li>
+            <li id="weekly" onClick={()=>this.changeDataUnit("weekly")} className={this.state.dataUnit=="weekly"?"active":""}>WEEKLY</li>
+            <li id="monthly" onClick={()=>this.changeDataUnit("monthly")} className={this.state.dataUnit=="monthly"?"active":""}>MONTHLY</li>
+          </ul>
           <div className="analytics-chart">
             {
               Object.keys(this.state.aqiArray).length > 0
@@ -350,7 +364,7 @@ export default class GraphView extends Component {
                       id={list}
                       key={list}
                       className={index===0 ? 'active' : ''}
-                    >{list == 'waterConsumption' ? "Water Consumption" : list=="peopleUsed"?"People Used":list=="usage"?"Usage":list}</li>
+                    >{list == 'waterConsumption' ? "VOLUME" : list=="peopleUsed"?"USERS":list=="usage"?"OPERATING HRS":list}</li>
                   )
                 })
               }
@@ -375,13 +389,13 @@ export default class GraphView extends Component {
           </div>
 
           <div className="chart-description">
-            <DropdownButton title={this.state.gasesInfo=="waterConsumption"?"Water Consumption":
-                this.state.gasesInfo=="peopleUsed"?"People Used":
-                    this.state.gasesInfo=="usage"?"Usage":this.state.gasesInfo
+            <DropdownButton title={this.state.gasesInfo=="waterConsumption"?"VOLUME":
+                this.state.gasesInfo=="peopleUsed"?"USERS":
+                    this.state.gasesInfo=="usage"?"OPERATING HRS":this.state.gasesInfo
             } id="chart-info-dropdown">
-              <MenuItem eventKey="1" onSelect={()=>{this.setState({gasesInfo : 'waterConsumption'})}}>Water Consumption</MenuItem>
-              <MenuItem eventKey="2" onSelect={()=>{this.setState({gasesInfo : 'peopleUsed'})}}>People Used</MenuItem>
-              <MenuItem eventKey="3" onSelect={()=>{this.setState({gasesInfo : 'usage'})}}>Usage</MenuItem>
+              <MenuItem eventKey="1" onSelect={()=>{this.setState({gasesInfo : 'waterConsumption'});this.displayGraph("waterConsumption");}}>VOLUME</MenuItem>
+              <MenuItem eventKey="2" onSelect={()=>{this.setState({gasesInfo : 'peopleUsed'});this.displayGraph("peopleUsed");}}>USERS</MenuItem>
+              <MenuItem eventKey="3" onSelect={()=>{this.setState({gasesInfo : 'usage'});this.displayGraph("usage");}}>OPERATING HRS</MenuItem>
 
             </DropdownButton>
             {

@@ -18,7 +18,8 @@ var config ={
 };
 var config1={
 
-    baseURL : 'http://ec2-18-220-175-111.us-east-2.compute.amazonaws.com'
+    baseURL:"http://localhost:3000",
+    baseURL1 : 'http://ec2-18-220-175-111.us-east-2.compute.amazonaws.com'
 };
 
 export default class Dashboard extends Component {
@@ -39,7 +40,8 @@ export default class Dashboard extends Component {
     this.handleToDt = this.handleToDt.bind(this)
     this.handleDtChange = this.handleDtChange.bind(this)
     this.handleDownload = this. handleDownload.bind(this)
-    this.emptyDate = this.emptyDate.bind(this)
+    this.emptyDate = this.emptyDate.bind(this);
+    this.changeDataUnit=this.changeDataUnit.bind(this);
   }
 
   getState() {
@@ -54,11 +56,14 @@ export default class Dashboard extends Component {
       loading: true,
       lat: '',
       lng: '',
+        id:'',
+        idt:'',
       realTimedataLoading: true,
       analyticsdataLoading: true,
       city_label: '',
       device_type: '',
       time: '',
+        dataUnit:"daily",
       no_records: false,
       iscity_changed: false,
       city_list: [],
@@ -71,6 +76,9 @@ export default class Dashboard extends Component {
       windowWidth: '',
     }
   }
+
+
+
 
   componentDidMount() {
     let width =  window.innerWidth || documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth
@@ -118,6 +126,11 @@ export default class Dashboard extends Component {
     this.setState({city: e.target.value, iscity_changed: true})
   }
 
+  changeDataUnit(unit){
+
+    this.setState({dataUnit:unit});
+    this.analyticsData(this.state.id,this.state.idt);
+  }
   changeStates(e){
 
       this.setState({stateid: e.target.value, isstate_changed: true})
@@ -178,11 +191,12 @@ export default class Dashboard extends Component {
   }
 
   analyticsData(id, time) {
+
     let lte = parseInt(new Date().getTime() / 1000)
     let today = new Date()
     let gte = parseInt(new Date(today.getTime() - 1 * 24 * 60 * 60 * 1000).getTime() / 1000);
 
-    axios.get('/dashboard/get_device_data_between?id=' + id + '&gte=' + gte + '&lte=' + lte,config1).then(function (response) {
+    axios.get('/dashboard/get_device_data_between?id=' + id + '&gte=' + gte + '&lte=' + lte+"&unit="+this.state.dataUnit,config1).then(function (response) {
       if(response) {
         this.setState({analyticsData: response.data, time: time, no_records: false})
         this.setState({analyticsdataLoading: false})
@@ -197,6 +211,7 @@ export default class Dashboard extends Component {
     //
     // }.bind(this))
 
+      this.setState({id:id,idt:time});
   }
 
 
@@ -361,6 +376,8 @@ export default class Dashboard extends Component {
                                   realtimeData={this.state.realTimeData}
                                   time={this.state.time}
                                   markerId={this.state.marker_id}
+                                  dataUnit={this.state.dataUnit}
+                                  changeDataUnit={this.changeDataUnit}
                                   fromDate={this.state.fromDate}
                                   toDate={this.state.toDate}
                                   emptyDate = {this.emptyDate}

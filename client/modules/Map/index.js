@@ -63,7 +63,7 @@ export default class Map extends Component {
    var html ='<div class="infowindow-content">'
             +'<div class="infowindow-head">'
             +'<strong>'+marker.label+'</strong>'
-            +'<span id="info-window-head-last-updated">'+this.displayTime(marker.payload.d.t)+'</span>'
+            +'<span id="info-window-head-last-updated">'+this.displayTime(marker.payload.d.t)+' '+marker.payload.uptime+'</span>'
             +'</div>'
             +'<div class="infowindow-body">'
             +'<div class="left-content">'
@@ -181,7 +181,7 @@ export default class Map extends Component {
           min="0"+min;
         }
         var ampm = hour >= 12 ? 'pm' : 'am'
-        let displayTime = hour + ':' + min + " " + ampm + " " + date + "-" + month + "-" + year;
+        let displayTime = date + "/" + month + "/" + year;
         return displayTime
     }
 }

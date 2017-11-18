@@ -27,6 +27,8 @@ export default class LatestDevice extends Component {
      this.props.emptyDate()
   }
 
+
+
   displayTime() {
     let a = new Date(this.props.realtimeData[0].payload.d.t * 1000)
 
@@ -196,6 +198,8 @@ export default class LatestDevice extends Component {
                   activeGraph = {this.state.activeGraph}
                   changeGraphData = {this.changeGraphData}
                   fromDate={this.props.fromDate}
+                  changeDataUnit={this.props.changeDataUnit}
+                  dataUnit={this.props.dataUnit}
                   toDate={this.props.toDate}
                   id={this.props.markerId}
                   emptyDate = {this.props.emptyDate}

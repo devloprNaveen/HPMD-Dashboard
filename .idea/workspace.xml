@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="964cade8-2d34-46bc-b346-160ce6c89bf8" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/images/favicon.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/images/favicon.ico" afterPath="$PROJECT_DIR$/assets/images/favicon.ico" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/modules/Dashboard/Dashboard.js" afterPath="$PROJECT_DIR$/client/modules/Dashboard/Dashboard.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/modules/Dashboard/pages/GraphView.js" afterPath="$PROJECT_DIR$/client/modules/Dashboard/pages/GraphView.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/modules/Dashboard/pages/LatestDevice.js" afterPath="$PROJECT_DIR$/client/modules/Dashboard/pages/LatestDevice.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/modules/Map/index.js" afterPath="$PROJECT_DIR$/client/modules/Map/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/main.scss" afterPath="$PROJECT_DIR$/styles/main.scss" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -333,7 +326,7 @@
       <workItem from="1509858216903" duration="9718000" />
       <workItem from="1510192376142" duration="7782000" />
       <workItem from="1510457262829" duration="1013000" />
-      <workItem from="1511001880925" duration="7798000" />
+      <workItem from="1511001880925" duration="7850000" />
     </task>
     <task id="LOCAL-00001" summary="some css changes">
       <created>1509872261012</created>
@@ -349,11 +342,18 @@
       <option name="project" value="LOCAL" />
       <updated>1509872423193</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="some more css changes">
+      <created>1511014534254</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1511014534254</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60259000" />
+    <option name="totallyTimeSpent" value="60311000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">

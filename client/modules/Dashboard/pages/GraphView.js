@@ -8,8 +8,12 @@ import axios from 'axios'
 
 
 var config ={
-  baseURL : 'https://openenvironment.p.mashape.com',
-  headers: {'X-Mashape-Key':'SPmv0Z46zymshRjsWckXKsA09OBrp14RCeSjsniWIpRk6llTuk'},
+  baseURL : 'localhost:3000',
+};
+var config1={
+
+    baseURL:"http://localhost:3000",
+    baseURL1 : 'http://ec2-18-220-175-111.us-east-2.compute.amazonaws.com'
 };
 
 let arr = {'AQI': []}, newTime, chart, diffDayArray = [], changedTimeArray = [];
@@ -26,7 +30,6 @@ export default class GraphView extends Component {
       aqiArray: {'waterConsumption': [], 'peopleUsed': [], 'usage': []},
       chartList: ['waterConsumption', 'peopleUsed', 'usage'],
       gasesInfo: 'waterConsumption',
-        dataUnit:'daily',
       dump:false
     };
     this.displayGraph = this.displayGraph.bind(this)
@@ -35,6 +38,7 @@ export default class GraphView extends Component {
   }
 
   componentDidMount() {
+
     if (this.props.analysisData.length > 0) {
       let temp = this.state.aqiArray
       let todayDt = parseInt(new Date().getTime() / 1000)
@@ -246,7 +250,8 @@ export default class GraphView extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.fromDate != nextProps.fromDate || this.props.toDate != nextProps.toDate) {
+      this.setState({gte:nextProps.gte,lte:nextProps.lte});
+    if (true || this.props.fromDate != nextProps.fromDate || this.props.toDate != nextProps.toDate) {
       var diff = moment(nextProps.toDate, "DD/MM/YYYY").diff(moment(nextProps.fromDate, "DD/MM/YYYY"))
       diff = moment.duration(diff)
       var diffN = diff.asDays()
@@ -259,22 +264,19 @@ export default class GraphView extends Component {
 
         let Data = [];
         if (diffN >= 3) {
-          let lte = parseInt(new Date().getTime() / 1000)
+          let lte = nextProps.lte;
           let today = new Date()
-          let gte = parseInt(new Date(today.getTime() - 1 * 24 * 60 * 60 * 1000).getTime() / 1000);
-          axios.get('/all/public/data/daily/' + this.props.id + '?gte=' + gte + '&lte=' + lte,config).then(function (res) {
+          let gte = nextProps.gte;
+          axios.get('/dashboard/get_device_data_between?unit='+nextProps.dataUnit+'&id=' + this.props.id + '&gte=' + gte + '&lte=' + lte,config1).then(function (res) {
             Data = res.data
 
-            let aqiArray = {'AQI': [], 'co': [], 'SO2': [], 'NO2': [], 'PM10': [], 'PM25': []}
+            let aqiArray = {'waterConsumption': [], 'peopleUsed': [], 'usage': []}
             Data.map((e) => {
               let a = (19800 + parseInt(e.payload.d.t)) * 1000;
 
-              aqiArray.AQI.unshift([a, e.aqi])
-              aqiArray.co.unshift([a, e.payload.d.co])
-              aqiArray.SO2.unshift([a, e.payload.d.so2])
-              aqiArray.NO2.unshift([a, e.payload.d.no2])
-              aqiArray.PM10.unshift([a, e.payload.d.pm10])
-              aqiArray.PM25.unshift([a, e.payload.d.pm25])
+              aqiArray.waterConsumption.unshift([a, e.payload.d.waterConsumption])
+              aqiArray.peopleUsed.unshift([a, e.payload.d.peopleUsed])
+              aqiArray.usage.unshift([a, e.payload.d.usage])
             })
             this.setState({aqiArray: aqiArray})
             this.renderChartOnData(aqiArray)
@@ -282,9 +284,9 @@ export default class GraphView extends Component {
         }
         else {
           Data = this.props.analysisData;
-          let from = (19800 + moment(nextProps.fromDate, "DD-MM-YYYY").unix()) * 1000;
-          let to = (19800 + moment(nextProps.toDate, "DD-MM-YYYY").add(1, 'days').unix()) * 1000;
-          let temp = {'AQI': [], 'co': [], 'SO2': [], 'NO2': [], 'PM10': [], 'PM25': []}
+          let from = nextProps.gte*1000;
+          let to = nextProps.lte*1000;
+          let temp = {'waterConsumption': [], 'peopleUsed': [], 'usage': []}
           Data.map((e) => {
             // // let xaxis = (19800 + parseInt(e.payload.d.t))*1000;
             // let date = moment.unix(e.payload.d.t).format('Do/MM/YYYY');
@@ -293,12 +295,9 @@ export default class GraphView extends Component {
 
             let a = (19800 + parseInt(e.payload.d.t)) * 1000;
             if (a < to && a > from) {
-              temp.AQI.unshift([a,e.aqi])
-              temp.co.unshift([a,e.payload.d.co])
-              temp.SO2.unshift([a,e.payload.d.so2])
-              temp.NO2.unshift([a,e.payload.d.no2])
-              temp.PM10.unshift([a,e.payload.d.pm10])
-              temp.PM25.unshift([a,e.payload.d.pm25])
+              temp.waterConsumption.unshift([a,e.payload.d.waterConsumption])
+              temp.peopleUsed.unshift([a,e.payload.d.peopleUsed])
+              temp.usage.unshift([a,e.payload.d.usage])
             }
           });
           this.setState({aqiArray: temp})
@@ -306,7 +305,6 @@ export default class GraphView extends Component {
         }
       }
     }
-    this.setState({dataUnit:this.props.dataUnit});
 
   }
 
@@ -343,9 +341,9 @@ export default class GraphView extends Component {
       <div >
         <div className="analytics-div">
           <ul className="chart-list list-inline" id="class-list1">
-            <li id="daily" onClick={()=>this.changeDataUnit("daily")} className={this.state.dataUnit=="daily"?"active":""}>DAILY</li>
-            <li id="weekly" onClick={()=>this.changeDataUnit("weekly")} className={this.state.dataUnit=="weekly"?"active":""}>WEEKLY</li>
-            <li id="monthly" onClick={()=>this.changeDataUnit("monthly")} className={this.state.dataUnit=="monthly"?"active":""}>MONTHLY</li>
+            <li id="daily" onClick={()=>this.changeDataUnit("daily")} className={this.props.dataUnit=="daily"?"active":""}>DAILY</li>
+            <li id="weekly" onClick={()=>this.changeDataUnit("weekly")} className={this.props.dataUnit=="weekly"?"active":""}>WEEKLY</li>
+            <li id="monthly" onClick={()=>this.changeDataUnit("monthly")} className={this.props.dataUnit=="monthly"?"active":""}>MONTHLY</li>
           </ul>
           <div className="analytics-chart">
             {
@@ -404,7 +402,7 @@ export default class GraphView extends Component {
                 <div className="gases-info">
                   <p>
 
-                    Water Consumption gives hourly details of total water consumed in an hour.
+                    Water Consumption gives hourly details of total water consumed.
                   </p>
                 </div>
                 :
@@ -412,14 +410,14 @@ export default class GraphView extends Component {
                   this.state.gasesInfo == 'peopleUsed'
                     ?
                     <div className="gases-info">
-                      People used gives information on number of people using pump in an hour.
+                      People used gives information on number of people using pump.
                     </div>
                     :
                     (
                       this.state.gasesInfo == 'usage'
                         ?
                         <div className="gases-info">
-                          Usage is total amount of time pump was used in an hour.
+                          Usage is total amount of time pump was used.
                         </div>
 
                                     :

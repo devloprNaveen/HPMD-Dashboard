@@ -14,11 +14,20 @@ export default class LatestDevice extends Component {
     this.displayTime = this.displayTime.bind(this)
     this.getLimits = this.getLimits.bind(this)
     this.closePopover = this.closePopover.bind(this)
+
   }
 
+    componentWillReceiveProps(nextProps){
+
+        this.setState({gte:nextProps.gte,lte:nextProps.lte});
+    }
   componentDidMount(){
-    superagent.get('https://openenvironment.p.mashape.com/limits').set('X-Mashape-Key', 'SPmv0Z46zymshRjsWckXKsA09OBrp14RCeSjsniWIpRk6llTuk').end(function (err, res) {
+
+
+
+      superagent.get('https://openenvironment.p.mashape.com/limits').set('X-Mashape-Key', 'SPmv0Z46zymshRjsWckXKsA09OBrp14RCeSjsniWIpRk6llTuk').end(function (err, res) {
       this.setState({limits: res.body})
+
       this.setState({dataLoaded: true})
     }.bind(this))
   }
@@ -41,7 +50,16 @@ export default class LatestDevice extends Component {
 
         min="0"+min;
     }
-    var ampm = hour >= 12 ? 'pm' : 'am'
+    var ampm = hour >= 12 ? 'PM' : 'AM';
+
+    if (hour>12){
+        hour=hour-12;
+    }
+    if (hour<=9){
+
+        hour="0"+hour;
+    }
+
     let displayTime = hour + ':' + min + " " + ampm + " " + date + "-" + month + "-" + year;
     return displayTime
   }
@@ -200,6 +218,8 @@ export default class LatestDevice extends Component {
                   fromDate={this.props.fromDate}
                   changeDataUnit={this.props.changeDataUnit}
                   dataUnit={this.props.dataUnit}
+                  gte={this.state.gte}
+                  lte={this.state.lte}
                   toDate={this.props.toDate}
                   id={this.props.markerId}
                   emptyDate = {this.props.emptyDate}
@@ -209,6 +229,7 @@ export default class LatestDevice extends Component {
                   changeGraphData = {this.changeGraphData}
                   activeGraph = {this.state.activeGraph}
                   markerId={this.props.markerId}
+                  pumpId={this.props.pumpId}
                 />
             }
 

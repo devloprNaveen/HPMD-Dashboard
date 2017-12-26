@@ -9,8 +9,9 @@ import axios from 'axios'
 
 let heatmap, displaydate = [], time = [], array = [], dateUniq = [],diffDateArray=[], dataHour =[];
 var config ={
-  baseURL : 'https://openenvironment.p.mashape.com',
-  headers: {'X-Mashape-Key':'SPmv0Z46zymshRjsWckXKsA09OBrp14RCeSjsniWIpRk6llTuk'},
+  baseURL : 'localhost:3000',
+    baseUrl1:"ec2-18-220-175-111.us-east-2.compute.amazonaws.com",
+
 };
 
 export default class CalendarView extends Component {
@@ -29,12 +30,13 @@ export default class CalendarView extends Component {
 
 
 
+
     diffDateArray = []
     for (let i = 0; i < 7; i++) {
       var incre = moment().subtract(i, 'days').format('D')
       diffDateArray.push(parseInt(incre));
     }
-    axios.get('/all/public/analytics/range/' + this.props.markerId + '?gte=' + gte + '&lte=' + lte,config).then(function (res) {
+    axios.get('/dashboard/get_device_data_between?id=' + this.props.pumpId + '&gte=' + gte + '&lte=' + lte+"&unit=daily",config).then(function (res) {
       if (res.statusText != "Not Found") {
         this.setState({dailyData: res.data})
         this.setState({dailyDataLoading: false})

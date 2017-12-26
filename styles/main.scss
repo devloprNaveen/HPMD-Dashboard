@@ -1,12 +1,12 @@
-.pump.satisfactory{
+.satisfactory{
 
-  color:#73C076;
+  color:#7ec092;
 }
-.pump.fair{
+.fair{
 
   color:#ffd20f;
 }
-.pump.broken{
+.broken{
 
   color:red;
 }
@@ -535,8 +535,10 @@ progress[value="10"]:after {
 }
 
 .aqi-status strong{
-  font-size: 90px;
+  font-size: 28px;
   //color: white;
+
+
   font-family: BebasneuesReg;
   margin: 30px 0 0;
   display: block;

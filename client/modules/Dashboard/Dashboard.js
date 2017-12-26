@@ -18,8 +18,8 @@ var config ={
 };
 var config1={
 
-    baseURL1:"http://localhost:3000",
-    baseURL : 'http://ec2-18-220-175-111.us-east-2.compute.amazonaws.com'
+    baseURL:"http://localhost:3000",
+    baseURL1 : 'http://ec2-18-220-175-111.us-east-2.compute.amazonaws.com'
 };
 
 export default class Dashboard extends Component {
@@ -46,6 +46,10 @@ export default class Dashboard extends Component {
 
   getState() {
     return {
+        gte: moment().subtract(7, 'days').unix(),
+        lte:moment().unix(),
+        fromDate:moment().subtract(7, 'days').format('Do/MM/YYYY'),
+        toDate:moment().format('Do/MM/YYYY'),
       markers: [],
       realTimeData: [],
       analyticsData: [],
@@ -69,10 +73,6 @@ export default class Dashboard extends Component {
       city_list: [],
         state_list:[],
       marker_id: '',
-      fromDate:'',
-      toDate: '',
-      gte: '',
-      lte: '',
       windowWidth: '',
     }
   }
@@ -83,10 +83,8 @@ export default class Dashboard extends Component {
   componentDidMount() {
     let width =  window.innerWidth || documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth
     this.setState({
-      gte: moment().unix(),
-      lte: moment().subtract(5, 'days').unix(),
       windowWidth: width
-    })
+    });
     axios.get('/dashboard/new_device_list',config1).then(function (response) {
       if(response) {
         this.setState({loading: false, markers: response.data})
@@ -128,8 +126,10 @@ export default class Dashboard extends Component {
 
   changeDataUnit(unit){
 
-    this.setState({dataUnit:unit});
-    this.analyticsData(this.state.id,this.state.idt);
+    this.setState({dataUnit:unit},function(){
+
+        this.analyticsData(this.state.id,this.state.idt);
+    });
   }
   changeStates(e){
 
@@ -175,6 +175,13 @@ export default class Dashboard extends Component {
   }
 
   realTimeData(id, time) {
+
+      this.setState({ gte: moment().subtract(7, 'days').unix(),
+          lte:moment().unix(),
+          fromDate:moment().subtract(7, 'days').format('Do/MM/YYYY'),
+          toDate:moment().format('Do/MM/YYYY'),dataUnit:"daily"});
+
+
     axios.get('/dashboard/get_device_data?id=' + id,config1).then(function (response) {
       if(response) {
         this.setState({realTimeData: response.data, time: time, marker_id : id})
@@ -192,9 +199,9 @@ export default class Dashboard extends Component {
 
   analyticsData(id, time) {
 
-    let lte = parseInt(new Date().getTime() / 1000)
-    let today = new Date()
-    let gte = parseInt(new Date(today.getTime() - 1 * 24 * 60 * 60 * 1000).getTime() / 1000);
+    let lte = this.state.lte;
+
+    let gte = this.state.gte;
 
     axios.get('/dashboard/get_device_data_between?id=' + id + '&gte=' + gte + '&lte=' + lte+"&unit="+this.state.dataUnit,config1).then(function (response) {
       if(response) {
@@ -377,6 +384,8 @@ export default class Dashboard extends Component {
                                   time={this.state.time}
                                   markerId={this.state.marker_id}
                                   dataUnit={this.state.dataUnit}
+                                  gte={this.state.gte}
+                                  lte={this.state.lte}
                                   changeDataUnit={this.changeDataUnit}
                                   fromDate={this.state.fromDate}
                                   toDate={this.state.toDate}
@@ -484,7 +493,10 @@ export default class Dashboard extends Component {
                                     realtimeData={this.state.realTimeData}
                                     time={this.state.time}
                                     markerId={this.state.marker_id}
+                                    pumpId={this.state.id}
                                     fromDate={this.state.fromDate}
+                                    gte={this.state.gte}
+                                    lte={this.state.lte}
                                     toDate={this.state.toDate}
                                     emptyDate = {this.emptyDate}
                                   />

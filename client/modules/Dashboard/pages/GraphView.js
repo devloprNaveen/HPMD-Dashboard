@@ -12,8 +12,8 @@ var config ={
 };
 var config1={
 
-    baseURL1:"http://localhost:3000",
-    baseURL : 'http://ec2-18-220-175-111.us-east-2.compute.amazonaws.com'
+    baseURL:"http://localhost:3000",
+    baseURL1 : 'http://ec2-18-220-175-111.us-east-2.compute.amazonaws.com'
 };
 
 let arr = {'AQI': []}, newTime, chart, diffDayArray = [], changedTimeArray = [];
@@ -53,7 +53,7 @@ export default class GraphView extends Component {
       })
       this.setState({
         aqiArray: temp
-      });
+      },
 
       chart = Highcharts.chart(this.refs.highchart, {
         chart: {
@@ -147,6 +147,7 @@ export default class GraphView extends Component {
           }]
         },
       })
+      );
     }
   }
 
@@ -250,7 +251,7 @@ export default class GraphView extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-      this.setState({gte:nextProps.gte,lte:nextProps.lte});
+      //this.setState({gte:nextProps.gte,lte:nextProps.lte});
     if (true || this.props.fromDate != nextProps.fromDate || this.props.toDate != nextProps.toDate) {
       var diff = moment(nextProps.toDate, "DD/MM/YYYY").diff(moment(nextProps.fromDate, "DD/MM/YYYY"))
       diff = moment.duration(diff)
@@ -267,6 +268,19 @@ export default class GraphView extends Component {
           let lte = nextProps.lte;
           let today = new Date()
           let gte = nextProps.gte;
+            Data = nextProps.analysisData;
+
+            let aqiArray = {'waterConsumption': [], 'peopleUsed': [], 'usage': []}
+            Data.map((e) => {
+                let a = (19800 + parseInt(e.payload.d.t)) * 1000;
+
+                aqiArray.waterConsumption.unshift([a, e.payload.d.waterConsumption])
+                aqiArray.peopleUsed.unshift([a, e.payload.d.peopleUsed])
+                aqiArray.usage.unshift([a, e.payload.d.usage])
+            })
+            this.setState({aqiArray: aqiArray});
+            this.renderChartOnData(aqiArray);
+          /*
           axios.get('/dashboard/get_device_data_between?unit='+nextProps.dataUnit+'&id=' + this.props.id + '&gte=' + gte + '&lte=' + lte,config1).then(function (res) {
             Data = res.data
 
@@ -278,12 +292,13 @@ export default class GraphView extends Component {
               aqiArray.peopleUsed.unshift([a, e.payload.d.peopleUsed])
               aqiArray.usage.unshift([a, e.payload.d.usage])
             })
-            this.setState({aqiArray: aqiArray})
+            this.setState({aqiArray: aqiArray});
             this.renderChartOnData(aqiArray)
           }.bind(this))
+          */
         }
         else {
-          Data = this.props.analysisData;
+          Data = nextProps.analysisData;
           let from = nextProps.gte*1000;
           let to = nextProps.lte*1000;
           let temp = {'waterConsumption': [], 'peopleUsed': [], 'usage': []}
@@ -319,7 +334,7 @@ export default class GraphView extends Component {
     });
 
     chart.series.map((e)=> {
-      if (e.name == tabName) {
+      if (e.name == tabName || (e.name=="water consumption" && tabName=="waterConsumption")) {
         e.setVisible(true)
       }
       else {

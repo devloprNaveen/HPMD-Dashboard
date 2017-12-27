@@ -127,7 +127,11 @@ export default class Map extends Component {
     else if (pumpConditionBucket=="fair") {
       return 'assets/images/pins/Caution.png'
     }
-    else {
+    else if (pumpConditionBucket=="offline"){
+
+        return 'assets/images/pins/Sensor.png'
+    }
+    else{
       return 'assets/images/pins/Alarm.png'
     }
   }
@@ -177,12 +181,23 @@ export default class Map extends Component {
         var date = a.getDate();
         var hour = a.getHours();
         var min = a.getMinutes();
+
+
         if (min<=9){
 
           min="0"+min;
         }
-        var ampm = hour >= 12 ? 'pm' : 'am'
-        let displayTime = date + "/" + month + "/" + year;
+        var ampm = hour >= 12 ? 'PM' : 'AM'
+
+        if (hour>12){
+
+          hour=hour-12;
+        }
+        if (hour<=9){
+
+            hour="0"+hour;
+        }
+        let displayTime = date + "/" + month + "/" + year+" "+hour+":"+min+" "+ampm;
         return displayTime
     }
 }

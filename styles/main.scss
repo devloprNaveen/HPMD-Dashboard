@@ -511,9 +511,10 @@ progress[value="10"]:after {
 }
 
 .device-type{
-  margin-left: 40px;
-  color: #00b3bd;
   font-size: 12px;
+  display: block;
+  color: white;
+  margin-left: 40px;
 }
 
 .last-updated span{
@@ -648,7 +649,10 @@ span#info-window-head-last-updated {
   float: right;
   margin-top: 8px;
 }
+.offline{
 
+  color:coral;
+}
 .gases-info{
   height: 86px;
   overflow-y: scroll;

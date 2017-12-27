@@ -18,8 +18,8 @@ var config ={
 };
 var config1={
 
-    baseURL1:"http://localhost:3000",
-    baseURL : 'http://ec2-18-220-175-111.us-east-2.compute.amazonaws.com'
+    baseURL:"http://localhost:3000",
+    baseURL1 : 'http://ec2-18-220-175-111.us-east-2.compute.amazonaws.com'
 };
 
 export default class Dashboard extends Component {
@@ -176,21 +176,17 @@ export default class Dashboard extends Component {
 
   realTimeData(id, time) {
 
-      this.setState({ gte: moment().subtract(7, 'days').unix(),
-          lte:moment().unix(),
-          fromDate:moment().subtract(7, 'days').format('Do/MM/YYYY'),
-          toDate:moment().format('Do/MM/YYYY'),dataUnit:"daily"});
-
 
     axios.get('/dashboard/get_device_data?id=' + id,config1).then(function (response) {
       if(response) {
-        this.setState({realTimeData: response.data, time: time, marker_id : id})
+        this.setState({realTimeData: response.data, marker_id : id})
           this.setState({realTimedataLoading: false})
       }
     }.bind(this))
       .catch(function (error) {
         console.log(error);
       });
+
     // superagent.get('https://openenvironment.p.mashape.com/all/public/data/cur/' + id).set('X-Mashape-Key', 'SPmv0Z46zymshRjsWckXKsA09OBrp14RCeSjsniWIpRk6llTuk').end(function (err, res) {
     //   this.setState({realTimeData: res.body, time: time, marker_id : id})
     //   this.setState({realTimedataLoading: false})
@@ -205,8 +201,13 @@ export default class Dashboard extends Component {
 
     axios.get('/dashboard/get_device_data_between?id=' + id + '&gte=' + gte + '&lte=' + lte+"&unit="+this.state.dataUnit,config1).then(function (response) {
       if(response) {
-        this.setState({analyticsData: response.data, time: time, no_records: false})
-        this.setState({analyticsdataLoading: false})
+          this.setState({id:id,idt:time},function(){
+
+              this.setState({analyticsData: response.data, no_records: false})
+              this.setState({analyticsdataLoading: false})
+
+          });
+
       }
     }.bind(this))
       .catch(function (error) {
@@ -218,7 +219,7 @@ export default class Dashboard extends Component {
     //
     // }.bind(this))
 
-      this.setState({id:id,idt:time});
+
   }
 
 
@@ -255,19 +256,21 @@ export default class Dashboard extends Component {
 
     fromDate = obj.format('Do/MM/YYYY')
     let gte = obj.unix()
-    this.setState({gte: gte })
+    this.setState({gte: gte },function(){this.analyticsData(this.state.id,this.state.idt)});
+
 
   }
 
   handleToDt(obj) {
     toDate = obj.format('Do/MM/YYYY')
     let lte = obj.unix()
-    this.setState({lte: lte })
+    this.setState({lte: lte },function(){this.analyticsData(this.state.id,this.state.idt)});
   }
 
   handleDtChange(){
     this.setState({toDate: toDate})
     this.setState({fromDate: fromDate})
+
   }
 
   emptyDate(){
@@ -360,8 +363,10 @@ export default class Dashboard extends Component {
                                         </div>
                                         <span className="device-label">
                                           {this.state.realTimeData[0].label}, { this.state.realTimeData[0].city}, { this.state.realTimeData[0].country }
-                                        </span><br/>
-                                        <br/>
+                                        </span>
+                                        <small className="device-type">
+                                            {this.state.realTimeData[0].type}
+                                        </small>
                                       </div>
                                     </div>
 
@@ -381,7 +386,6 @@ export default class Dashboard extends Component {
                                 <LatestDevice
                                   analysisData={this.state.analyticsData}
                                   realtimeData={this.state.realTimeData}
-                                  time={this.state.time}
                                   markerId={this.state.marker_id}
                                   dataUnit={this.state.dataUnit}
                                   gte={this.state.gte}
@@ -464,10 +468,10 @@ export default class Dashboard extends Component {
                                         </div>
                                           <span className="device-label">
                                             {this.state.realTimeData[0].label}, { this.state.realTimeData[0].city}, { this.state.realTimeData[0].country }
-                                          </span><br/>
+                                          </span>
                                         <small className="device-type">
                                           {this.state.realTimeData[0].type}
-                                        </small><br/>
+                                        </small>
                                       </div>
                                     </div>
                                     <div className="col-xs-2">
@@ -491,7 +495,7 @@ export default class Dashboard extends Component {
                                   <LatestDevice
                                     analysisData={this.state.analyticsData}
                                     realtimeData={this.state.realTimeData}
-                                    time={this.state.time}
+
                                     markerId={this.state.marker_id}
                                     pumpId={this.state.id}
                                     fromDate={this.state.fromDate}

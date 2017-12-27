@@ -17,19 +17,10 @@ export default class LatestDevice extends Component {
 
   }
 
-    componentWillReceiveProps(nextProps){
-
-        this.setState({gte:nextProps.gte,lte:nextProps.lte});
-    }
   componentDidMount(){
 
 
 
-      superagent.get('https://openenvironment.p.mashape.com/limits').set('X-Mashape-Key', 'SPmv0Z46zymshRjsWckXKsA09OBrp14RCeSjsniWIpRk6llTuk').end(function (err, res) {
-      this.setState({limits: res.body})
-
-      this.setState({dataLoaded: true})
-    }.bind(this))
   }
 
   componentWillUnmount(){
@@ -182,7 +173,7 @@ export default class LatestDevice extends Component {
             <div className="aqi-status">
 
               <strong className={latestDevice.pumpConditionBucket}>
-                  {latestDevice.pumpCondition}
+                  {(latestDevice.pumpCondition!="Fair"?latestDevice.pumpCondition:"Needs Attention")}
               </strong>
 
 

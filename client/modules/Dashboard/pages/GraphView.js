@@ -67,8 +67,8 @@ export default class GraphView extends Component {
         title: {
           text: 'Analytics',
           style: {
-            color: 'white',
-            fontSize: '14px'
+            color: '#00b3bf',
+            fontSize: '14px',
           }
         },
 

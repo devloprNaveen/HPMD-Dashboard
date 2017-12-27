@@ -63,7 +63,7 @@ export default class Map extends Component {
    var html ='<div class="infowindow-content">'
             +'<div class="infowindow-head">'
             +'<strong>'+marker.label+'</strong>'
-            +'<span id="info-window-head-uptime">Uptime '+marker.payload.uptime+'</span>'
+            +'<span id="info-window-head-uptime">Uptime : '+marker.payload.uptime+'</span>'
             +'</div>'
             +'<span id="info-window-head-last-updated">'+this.displayTime(marker.payload.d.t)+'</span>'
        +'<div class="infowindow-body">'

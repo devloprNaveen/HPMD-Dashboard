@@ -551,6 +551,7 @@ progress[value="10"]:after {
   color: white;
   /* font-size: 12px; */
   float: right;
+  color: #00b3bf;
 }
 .aqi-status p.aqi-grade{
   //color: white;
@@ -761,6 +762,7 @@ span#info-window-head-last-updated {
 
 .chart-btn-group{
   margin-top: 20px;
+  display:none;
 }
 
 .chart-btn-group img{

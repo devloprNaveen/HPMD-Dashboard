@@ -173,7 +173,7 @@ export default class LatestDevice extends Component {
             <div className="aqi-status">
 
               <strong className={latestDevice.pumpConditionBucket}>
-                  {(latestDevice.pumpCondition!="Fair"?latestDevice.pumpCondition:"Needs Attention")}
+                  {latestDevice.pumpCondition}
               </strong>
 
 

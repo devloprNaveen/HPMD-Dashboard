@@ -151,6 +151,14 @@ export default class Dashboard extends Component {
   }
 
   closePanel() {
+
+      this.setState({
+          gte: moment().subtract(7, 'days').unix(),
+          lte: moment().unix(),
+          dataUnit: "daily",
+          fromDate: moment().subtract(7, 'days').format('Do/MM/YYYY'),
+          toDate: moment().format('Do/MM/YYYY')
+      });
     this.setState({show_panel: false})
   }
 
@@ -225,17 +233,19 @@ export default class Dashboard extends Component {
 
   handleMarkerClick(targetMarker, index) {
 
-    this.setState({
-      markers: this.state.markers.map(marker => {
-        if (marker === targetMarker) {
-          return {
-            ...marker,
-            showInfo: true
-          }
-        }
-        return marker;
-      })
-    });
+
+      this.setState({
+          markers: this.state.markers.map(marker => {
+              if (marker === targetMarker) {
+                  return {
+                      ...marker,
+                      showInfo: true
+                  }
+              }
+              return marker;
+          })
+      });
+
   }
 
   handleMarkerClose(targetMarker) {
@@ -274,13 +284,13 @@ export default class Dashboard extends Component {
   }
 
   emptyDate(){
-    this.setState({toDate: ''})
-    this.setState({fromDate: ''})
+    //this.setState({toDate: ''})
+    //this.setState({fromDate: ''})
   }
 
   handleDownload(){
     if (typeof window !== 'undefined') {
-      window.open(`http://api.airpollution.online/csv/retrive/${this.state.marker_id}/${this.state.gte}/${this.state.lte}`, '_self');
+      window.open('http://ec2-18-220-175-111.us-east-2.compute.amazonaws.com/dashboard/issue_dump', '_self');
     }
   }
   render() {
@@ -316,7 +326,7 @@ export default class Dashboard extends Component {
                   <FormGroup controlId="formControlsSelect">
                     <FormControl componentClass="select" placeholder="select" ref="cityList" className="select-cities"
                                  onChange={this.changeStates}>
-                      <option value="-1">India</option>
+                      <option value="-1"></option>
                       {
                         this.state.state_list.map((element, index)=> {
                           return (

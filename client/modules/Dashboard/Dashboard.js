@@ -18,8 +18,8 @@ var config ={
 };
 var config1={
 
-    baseURL1:"http://localhost:3000",
-    baseURL : 'http://ec2-18-220-175-111.us-east-2.compute.amazonaws.com'
+    baseURL:"http://localhost:3000",
+    baseURL1 : 'http://ec2-18-220-175-111.us-east-2.compute.amazonaws.com'
 };
 
 export default class Dashboard extends Component {

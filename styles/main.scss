@@ -545,7 +545,12 @@ progress[value="10"]:after {
   line-height: 55px;
   font-weight: 100;
 }
+#info-window-head-uptime{
 
+  color: white;
+  /* font-size: 12px; */
+  float: right;
+}
 .aqi-status p.aqi-grade{
   //color: white;
   font-size: 23px;
@@ -641,6 +646,7 @@ span#info-window-head-last-updated {
 
   color: white;
   float: right;
+  margin-top: 8px;
 }
 
 .gases-info{

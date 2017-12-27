@@ -63,9 +63,10 @@ export default class Map extends Component {
    var html ='<div class="infowindow-content">'
             +'<div class="infowindow-head">'
             +'<strong>'+marker.label+'</strong>'
-            +'<span id="info-window-head-last-updated">'+this.displayTime(marker.payload.d.t)+' '+marker.payload.uptime+'</span>'
+            +'<span id="info-window-head-uptime">Uptime '+marker.payload.uptime+'</span>'
             +'</div>'
-            +'<div class="infowindow-body">'
+            +'<span id="info-window-head-last-updated">'+this.displayTime(marker.payload.d.t)+'</span>'
+       +'<div class="infowindow-body">'
             +'<div class="left-content">'
             +'<div><i class="fa fa-circle pump '+marker.pumpConditionBucket+'" aria-hidden="true"></i>'+marker.pumpCondition+'</div>'
             +'<div>' +

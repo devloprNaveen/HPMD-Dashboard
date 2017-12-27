@@ -326,7 +326,7 @@ export default class Dashboard extends Component {
                   <FormGroup controlId="formControlsSelect">
                     <FormControl componentClass="select" placeholder="select" ref="cityList" className="select-cities"
                                  onChange={this.changeStates}>
-                      <option value="-1"></option>
+                      <option value="-1">Select State</option>
                       {
                         this.state.state_list.map((element, index)=> {
                           return (
@@ -338,7 +338,7 @@ export default class Dashboard extends Component {
                     </FormControl>
                     <FormControl componentClass="select" placeholder="select" ref="cityList" className="select-cities"
                                  onChange={this.changeCities}>
-                      <option value=""></option>
+                      <option value="">Select District</option>
                         {
                             this.state.city_list.map((element, index)=> {
                                 return (

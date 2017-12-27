@@ -4,10 +4,6 @@
     <list default="true" id="964cade8-2d34-46bc-b346-160ce6c89bf8" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/modules/Dashboard/Dashboard.js" afterPath="$PROJECT_DIR$/client/modules/Dashboard/Dashboard.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/modules/Dashboard/pages/GraphView.js" afterPath="$PROJECT_DIR$/client/modules/Dashboard/pages/GraphView.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/modules/Dashboard/pages/LatestDevice.js" afterPath="$PROJECT_DIR$/client/modules/Dashboard/pages/LatestDevice.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/modules/Map/index.js" afterPath="$PROJECT_DIR$/client/modules/Map/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/main.scss" afterPath="$PROJECT_DIR$/styles/main.scss" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -21,8 +17,8 @@
       <file leaf-file-name="Dashboard.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/modules/Dashboard/Dashboard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="292" column="2" lean-forward="false" selection-start-line="292" selection-start-column="2" selection-end-line="292" selection-end-column="2" />
+            <state relative-caret-position="204">
+              <caret line="335" column="11" lean-forward="false" selection-start-line="335" selection-start-column="11" selection-end-line="335" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -45,8 +41,8 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/modules/Map/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="48" column="20" lean-forward="false" selection-start-line="48" selection-start-column="20" selection-end-line="48" selection-end-column="20" />
+            <state relative-caret-position="114">
+              <caret line="129" column="38" lean-forward="false" selection-start-line="129" selection-start-column="37" selection-end-line="129" selection-end-column="38" />
               <folding>
                 <marker date="1514379708853" expanded="true" signature="2734:2752" ph="..." />
                 <marker date="1514379708853" expanded="true" signature="2809:2824" ph="..." />
@@ -79,7 +75,7 @@
       <file leaf-file-name="GraphView.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/modules/Dashboard/pages/GraphView.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
+            <state relative-caret-position="6698">
               <caret line="394" column="55" lean-forward="false" selection-start-line="394" selection-start-column="54" selection-end-line="394" selection-end-column="55" />
               <folding />
             </state>
@@ -117,7 +113,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Alar</find>
       <find>Alarm</find>
       <find>&lt;M</find>
       <find>Caution.p</find>
@@ -147,6 +142,7 @@
       <find>analyticsData</find>
       <find>closePanel</find>
       <find>emptyDate</find>
+      <find>state</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -200,6 +196,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -317,8 +315,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -425,7 +421,9 @@
       <workItem from="1514372479988" duration="876000" />
       <workItem from="1514376604985" duration="1782000" />
       <workItem from="1514378460563" duration="1856000" />
-      <workItem from="1514380385756" duration="902000" />
+      <workItem from="1514380385756" duration="1806000" />
+      <workItem from="1514383030224" duration="1301000" />
+      <workItem from="1514385549909" duration="79000" />
     </task>
     <task id="LOCAL-00001" summary="some css changes">
       <created>1509872261012</created>
@@ -504,11 +502,18 @@
       <option name="project" value="LOCAL" />
       <updated>1514371756693</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="changes to integrate client with server">
+      <created>1514381322868</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1514381322868</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="115581000" />
+    <option name="totallyTimeSpent" value="117865000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -521,15 +526,16 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5431165" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5605144" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31260228" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31260228" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -867,10 +873,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/client/modules/Dashboard/pages/GraphView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6698">
+          <caret line="394" column="55" lean-forward="false" selection-start-line="394" selection-start-column="54" selection-end-line="394" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/client/modules/Map/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="48" column="20" lean-forward="false" selection-start-line="48" selection-start-column="20" selection-end-line="48" selection-end-column="20" />
+        <state relative-caret-position="114">
+          <caret line="129" column="38" lean-forward="false" selection-start-line="129" selection-start-column="37" selection-end-line="129" selection-end-column="38" />
           <folding>
             <marker date="1514379708853" expanded="true" signature="2734:2752" ph="..." />
             <marker date="1514379708853" expanded="true" signature="2809:2824" ph="..." />
@@ -882,18 +896,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/modules/Dashboard/pages/GraphView.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="394" column="55" lean-forward="false" selection-start-line="394" selection-start-column="54" selection-end-line="394" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/modules/Dashboard/Dashboard.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="292" column="2" lean-forward="false" selection-start-line="292" selection-start-column="2" selection-end-line="292" selection-end-column="2" />
+        <state relative-caret-position="204">
+          <caret line="335" column="11" lean-forward="false" selection-start-line="335" selection-start-column="11" selection-end-line="335" selection-end-column="11" />
           <folding />
         </state>
       </provider>

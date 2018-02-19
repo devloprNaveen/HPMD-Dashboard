@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="964cade8-2d34-46bc-b346-160ce6c89bf8" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/modules/Dashboard/Dashboard.js" afterPath="$PROJECT_DIR$/client/modules/Dashboard/Dashboard.js" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/client/modules/Dashboard/Dashboard.js" afterPath="$PROJECT_DIR$/client/modules/Dashboard/Dashboard.js" />
+      <change beforePath="$PROJECT_DIR$/client/modules/Map/index.js" afterPath="$PROJECT_DIR$/client/modules/Map/index.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,11 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Dashboard.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Dashboard.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/modules/Dashboard/Dashboard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="335" column="11" lean-forward="false" selection-start-line="335" selection-start-column="11" selection-end-line="335" selection-end-column="11" />
+            <state relative-caret-position="530">
+              <caret line="237" column="41" lean-forward="false" selection-start-line="237" selection-start-column="41" selection-end-line="237" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -38,18 +39,18 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/modules/Map/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="129" column="38" lean-forward="false" selection-start-line="129" selection-start-column="37" selection-end-line="129" selection-end-column="38" />
+            <state relative-caret-position="2057">
+              <caret line="194" column="9" lean-forward="false" selection-start-line="194" selection-start-column="9" selection-end-line="194" selection-end-column="9" />
               <folding>
-                <marker date="1514379708853" expanded="true" signature="2734:2752" ph="..." />
-                <marker date="1514379708853" expanded="true" signature="2809:2824" ph="..." />
-                <marker date="1514379708853" expanded="true" signature="2882:2900" ph="..." />
-                <marker date="1514379708853" expanded="true" signature="2951:2966" ph="..." />
-                <marker date="1514379708853" expanded="true" signature="3020:3038" ph="..." />
-                <marker date="1514379708853" expanded="true" signature="3095:3110" ph="..." />
+                <marker date="1519010663977" expanded="true" signature="2752:2770" ph="..." />
+                <marker date="1519010663977" expanded="true" signature="2827:2842" ph="..." />
+                <marker date="1519010663977" expanded="true" signature="2900:2918" ph="..." />
+                <marker date="1519010663977" expanded="true" signature="2969:2984" ph="..." />
+                <marker date="1519010663977" expanded="true" signature="3038:3056" ph="..." />
+                <marker date="1519010663977" expanded="true" signature="3113:3128" ph="..." />
               </folding>
             </state>
           </provider>
@@ -58,7 +59,7 @@
       <file leaf-file-name="main.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/styles/main.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="9401">
+            <state relative-caret-position="17">
               <caret line="553" column="17" lean-forward="false" selection-start-line="553" selection-start-column="17" selection-end-line="553" selection-end-column="17" />
               <folding />
             </state>
@@ -75,8 +76,8 @@
       <file leaf-file-name="GraphView.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/modules/Dashboard/pages/GraphView.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6698">
-              <caret line="394" column="55" lean-forward="false" selection-start-line="394" selection-start-column="54" selection-end-line="394" selection-end-column="55" />
+            <state relative-caret-position="1207">
+              <caret line="90" column="15" lean-forward="false" selection-start-line="90" selection-start-column="10" selection-end-line="90" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -96,7 +97,7 @@
         <entry file="file://$PROJECT_DIR$/client/modules/Dashboard/pages/LatestDevice.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="2958">
-              <caret line="179" column="36" lean-forward="false" selection-start-line="179" selection-start-column="35" selection-end-line="179" selection-end-column="36" />
+              <caret line="179" column="44" lean-forward="false" selection-start-line="179" selection-start-column="44" selection-end-line="179" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -113,17 +114,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Alarm</find>
-      <find>&lt;M</find>
-      <find>Caution.p</find>
-      <find>Gr</find>
-      <find>label</find>
-      <find>device-label</find>
-      <find>device-</find>
-      <find>LatestD</find>
-      <find>changeDataUnit</find>
-      <find>setState({id</find>
-      <find>chart-btn-group</find>
       <find>needs</find>
       <find>handleDo</find>
       <find>Analytics</find>
@@ -143,6 +133,17 @@
       <find>closePanel</find>
       <find>emptyDate</find>
       <find>state</find>
+      <find>LatestD</find>
+      <find>show_</find>
+      <find>Marker</find>
+      <find>hover</find>
+      <find>infowindow</find>
+      <find>marker</find>
+      <find>device-label</find>
+      <find>label</find>
+      <find>mapview</find>
+      <find>40</find>
+      <find>zoom</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -160,8 +161,8 @@
         <option value="$PROJECT_DIR$/client/modules/Dashboard/pages/LatestDevice.js" />
         <option value="$PROJECT_DIR$/styles/main.scss" />
         <option value="$PROJECT_DIR$/client/modules/Dashboard/pages/GraphView.js" />
-        <option value="$PROJECT_DIR$/client/modules/Map/index.js" />
         <option value="$PROJECT_DIR$/client/modules/Dashboard/Dashboard.js" />
+        <option value="$PROJECT_DIR$/client/modules/Map/index.js" />
       </list>
     </option>
   </component>
@@ -175,10 +176,10 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-416" />
-    <option name="y" value="101" />
-    <option name="width" value="1378" />
-    <option name="height" value="744" />
+    <option name="x" value="22" />
+    <option name="y" value="197" />
+    <option name="width" value="1346" />
+    <option name="height" value="688" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -196,8 +197,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -348,7 +349,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="React Native.Unnamed">
+  <component name="RunManager">
     <configuration name="Unnamed" type="ReactNative" factoryName="React Native">
       <node-interpreter value="project" />
       <react-native value="" />
@@ -360,6 +361,9 @@
     <option name="remove_strategy" value="false" />
   </component>
   <component name="SpringUtil" SPRING_PRE_LOADER_OPTION="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="964cade8-2d34-46bc-b346-160ce6c89bf8" name="Default" comment="" />
@@ -423,7 +427,16 @@
       <workItem from="1514378460563" duration="1856000" />
       <workItem from="1514380385756" duration="1806000" />
       <workItem from="1514383030224" duration="1301000" />
-      <workItem from="1514385549909" duration="79000" />
+      <workItem from="1514385549909" duration="232000" />
+      <workItem from="1514445677057" duration="613000" />
+      <workItem from="1514520799521" duration="515000" />
+      <workItem from="1514531662222" duration="583000" />
+      <workItem from="1514533449947" duration="596000" />
+      <workItem from="1514535671034" duration="741000" />
+      <workItem from="1515547795942" duration="584000" />
+      <workItem from="1516829617965" duration="591000" />
+      <workItem from="1517256034751" duration="571000" />
+      <workItem from="1519007591571" duration="3490000" />
     </task>
     <task id="LOCAL-00001" summary="some css changes">
       <created>1509872261012</created>
@@ -509,11 +522,18 @@
       <option name="project" value="LOCAL" />
       <updated>1514381322868</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="changes to integrate client with server">
+      <created>1514385638956</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1514385638956</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="117865000" />
+    <option name="totallyTimeSpent" value="126302000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -528,14 +548,15 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5605144" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21558245" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31260228" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3120915" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -781,7 +802,6 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="544">
             <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-            <folding />
           </first_editor>
           <second_editor />
         </state>
@@ -817,7 +837,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -825,26 +844,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/images/pins/Caution.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/images/pins/Repair.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/images/pins/Up.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/images/pins/Alarm.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
@@ -857,50 +860,65 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/modules/Dashboard/pages/LatestDevice.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2958">
-          <caret line="179" column="36" lean-forward="false" selection-start-line="179" selection-start-column="35" selection-end-line="179" selection-end-column="36" />
-          <folding />
-        </state>
+    <entry file="file://$PROJECT_DIR$/assets/images/pins/Repair.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/styles/main.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9401">
+        <state relative-caret-position="17">
           <caret line="553" column="17" lean-forward="false" selection-start-line="553" selection-start-column="17" selection-end-line="553" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/images/pins/Caution.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/images/pins/Alarm.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/modules/Dashboard/pages/LatestDevice.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2958">
+          <caret line="179" column="44" lean-forward="false" selection-start-line="179" selection-start-column="44" selection-end-line="179" selection-end-column="44" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/modules/Dashboard/pages/GraphView.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6698">
-          <caret line="394" column="55" lean-forward="false" selection-start-line="394" selection-start-column="54" selection-end-line="394" selection-end-column="55" />
+        <state relative-caret-position="1207">
+          <caret line="90" column="15" lean-forward="false" selection-start-line="90" selection-start-column="10" selection-end-line="90" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/modules/Dashboard/Dashboard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="530">
+          <caret line="237" column="41" lean-forward="false" selection-start-line="237" selection-start-column="41" selection-end-line="237" selection-end-column="41" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/modules/Map/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="129" column="38" lean-forward="false" selection-start-line="129" selection-start-column="37" selection-end-line="129" selection-end-column="38" />
+        <state relative-caret-position="2057">
+          <caret line="194" column="9" lean-forward="false" selection-start-line="194" selection-start-column="9" selection-end-line="194" selection-end-column="9" />
           <folding>
-            <marker date="1514379708853" expanded="true" signature="2734:2752" ph="..." />
-            <marker date="1514379708853" expanded="true" signature="2809:2824" ph="..." />
-            <marker date="1514379708853" expanded="true" signature="2882:2900" ph="..." />
-            <marker date="1514379708853" expanded="true" signature="2951:2966" ph="..." />
-            <marker date="1514379708853" expanded="true" signature="3020:3038" ph="..." />
-            <marker date="1514379708853" expanded="true" signature="3095:3110" ph="..." />
+            <marker date="1519010663977" expanded="true" signature="2752:2770" ph="..." />
+            <marker date="1519010663977" expanded="true" signature="2827:2842" ph="..." />
+            <marker date="1519010663977" expanded="true" signature="2900:2918" ph="..." />
+            <marker date="1519010663977" expanded="true" signature="2969:2984" ph="..." />
+            <marker date="1519010663977" expanded="true" signature="3038:3056" ph="..." />
+            <marker date="1519010663977" expanded="true" signature="3113:3128" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/modules/Dashboard/Dashboard.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="335" column="11" lean-forward="false" selection-start-line="335" selection-start-column="11" selection-end-line="335" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>

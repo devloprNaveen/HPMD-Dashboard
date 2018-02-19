@@ -372,7 +372,7 @@ export default class Dashboard extends Component {
 
                                         </div>
                                         <span className="device-label">
-                                          {this.state.realTimeData[0].label}, { this.state.realTimeData[0].city}, { this.state.realTimeData[0].country }
+                                          {this.state.realTimeData[0].label}, { this.state.realTimeData[0].city}
                                         </span>
                                         <small className="device-type">
                                             {this.state.realTimeData[0].type}

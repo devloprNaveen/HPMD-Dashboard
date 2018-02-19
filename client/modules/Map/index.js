@@ -5,7 +5,7 @@ export default class Map extends Component {
 
   constructor(props) {
     super(props)
-    this.state = {lat: 22.9734, lng: 78.6569, zoom: 5, cityChanged: this.props.cityChanged}
+    this.state = {lat: 22.400304 , lng: 88.285201, zoom: 15, cityChanged: this.props.cityChanged}
     this.renderMarkers = this.renderMarkers.bind(this)
     this.renderInfoWindow = this.renderInfoWindow.bind(this)
   }
@@ -20,16 +20,16 @@ export default class Map extends Component {
         let nextLatitude  =  nextProps.cities[nextProps.cityValue].latitude
         let nextLongitude =  nextProps.cities[nextProps.cityValue].longitude
         this.map.setCenter({lat: nextLatitude, lng: nextLongitude})
-        this.map.setZoom(11)
+        this.map.setZoom(15)
       } else {
-        this.map.setCenter({lat: 22.9734, lng: 78.6569})
-        this.map.setZoom(5)
+        this.map.setCenter({lat: 22.400304 , lng: 88.285201})
+        this.map.setZoom(15)
       }
     }
   }
 
   mapCenterLatLng() {
-    return new google.maps.LatLng(22.9734, 78.6569);
+    return new google.maps.LatLng(22.400304  , 88.285201);
   }
 
   renderMarkers(markers, map) {

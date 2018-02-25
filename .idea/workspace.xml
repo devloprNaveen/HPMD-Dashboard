@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="964cade8-2d34-46bc-b346-160ce6c89bf8" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/client/modules/Dashboard/Dashboard.js" afterPath="$PROJECT_DIR$/client/modules/Dashboard/Dashboard.js" />
-      <change beforePath="$PROJECT_DIR$/client/modules/Map/index.js" afterPath="$PROJECT_DIR$/client/modules/Map/index.js" />
+      <change beforePath="$PROJECT_DIR$/client/modules/Dashboard/pages/LatestDevice.js" afterPath="$PROJECT_DIR$/client/modules/Dashboard/pages/LatestDevice.js" />
+      <change beforePath="$PROJECT_DIR$/styles/main.scss" afterPath="$PROJECT_DIR$/styles/main.scss" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,8 +18,8 @@
       <file leaf-file-name="Dashboard.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/modules/Dashboard/Dashboard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="530">
-              <caret line="237" column="41" lean-forward="false" selection-start-line="237" selection-start-column="41" selection-end-line="237" selection-end-column="41" />
+            <state relative-caret-position="51">
+              <caret line="311" column="18" lean-forward="false" selection-start-line="311" selection-start-column="18" selection-end-line="311" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -39,11 +39,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/modules/Map/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2057">
-              <caret line="194" column="9" lean-forward="false" selection-start-line="194" selection-start-column="9" selection-end-line="194" selection-end-column="9" />
+            <state relative-caret-position="68">
+              <caret line="62" column="44" lean-forward="false" selection-start-line="62" selection-start-column="26" selection-end-line="62" selection-end-column="44" />
               <folding>
                 <marker date="1519010663977" expanded="true" signature="2752:2770" ph="..." />
                 <marker date="1519010663977" expanded="true" signature="2827:2842" ph="..." />
@@ -56,11 +56,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.scss" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.scss" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/styles/main.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="553" column="17" lean-forward="false" selection-start-line="553" selection-start-column="17" selection-end-line="553" selection-end-column="17" />
+            <state relative-caret-position="289">
+              <caret line="964" column="2" lean-forward="false" selection-start-line="964" selection-start-column="2" selection-end-line="964" selection-end-column="2" />
               <folding />
             </state>
           </provider>
@@ -76,8 +76,8 @@
       <file leaf-file-name="GraphView.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/modules/Dashboard/pages/GraphView.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1207">
-              <caret line="90" column="15" lean-forward="false" selection-start-line="90" selection-start-column="10" selection-end-line="90" selection-end-column="15" />
+            <state relative-caret-position="6800">
+              <caret line="404" column="51" lean-forward="false" selection-start-line="404" selection-start-column="46" selection-end-line="404" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -96,8 +96,8 @@
       <file leaf-file-name="LatestDevice.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/modules/Dashboard/pages/LatestDevice.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2958">
-              <caret line="179" column="44" lean-forward="false" selection-start-line="179" selection-start-column="44" selection-end-line="179" selection-end-column="44" />
+            <state relative-caret-position="102">
+              <caret line="191" column="0" lean-forward="false" selection-start-line="191" selection-start-column="0" selection-end-line="191" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -114,14 +114,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>needs</find>
-      <find>handleDo</find>
-      <find>Analytics</find>
-      <find>uptime</find>
-      <find>upt</find>
-      <find>uptim</find>
-      <find>info-window-head-uptime</find>
-      <find>left</find>
       <find>&lt;Map</find>
       <find>handleMarkerClick</find>
       <find>handle</find>
@@ -139,11 +131,19 @@
       <find>hover</find>
       <find>infowindow</find>
       <find>marker</find>
-      <find>device-label</find>
       <find>label</find>
       <find>mapview</find>
       <find>40</find>
       <find>zoom</find>
+      <find>device-label</find>
+      <find>gases</find>
+      <find>gasesg</find>
+      <find>renderinfo</find>
+      <find>infowindow-content</find>
+      <find>gases-de</find>
+      <find>display:none</find>
+      <find>infowindow-con</find>
+      <find>display: none</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -158,11 +158,11 @@
         <option value="$PROJECT_DIR$/client/modules/Navbar/Navbar.js" />
         <option value="$PROJECT_DIR$/server/config.js" />
         <option value="$PROJECT_DIR$/client/modules/Dashboard/pages/CalendarView.js" />
-        <option value="$PROJECT_DIR$/client/modules/Dashboard/pages/LatestDevice.js" />
-        <option value="$PROJECT_DIR$/styles/main.scss" />
         <option value="$PROJECT_DIR$/client/modules/Dashboard/pages/GraphView.js" />
         <option value="$PROJECT_DIR$/client/modules/Dashboard/Dashboard.js" />
         <option value="$PROJECT_DIR$/client/modules/Map/index.js" />
+        <option value="$PROJECT_DIR$/client/modules/Dashboard/pages/LatestDevice.js" />
+        <option value="$PROJECT_DIR$/styles/main.scss" />
       </list>
     </option>
   </component>
@@ -176,8 +176,8 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="22" />
-    <option name="y" value="197" />
+    <option name="x" value="10" />
+    <option name="y" value="20" />
     <option name="width" value="1346" />
     <option name="height" value="688" />
   </component>
@@ -197,75 +197,12 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="open-environment-data-react-master" type="b2602c69:ProjectViewProjectNode" />
               <item name="open-environment-data-react-master" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="open-environment-data-react-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="open-environment-data-react-master" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="open-environment-data-react-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="open-environment-data-react-master" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="open-environment-data-react-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="open-environment-data-react-master" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-              <item name="pins" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="open-environment-data-react-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="open-environment-data-react-master" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="open-environment-data-react-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="open-environment-data-react-master" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="open-environment-data-react-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="open-environment-data-react-master" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="open-environment-data-react-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="open-environment-data-react-master" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="Dashboard" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="open-environment-data-react-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="open-environment-data-react-master" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="Dashboard" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="open-environment-data-react-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="open-environment-data-react-master" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="open-environment-data-react-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="open-environment-data-react-master" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-              <item name="blueprints" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="open-environment-data-react-master" type="b2602c69:ProjectViewProjectNode" />
@@ -316,6 +253,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -436,7 +375,8 @@
       <workItem from="1515547795942" duration="584000" />
       <workItem from="1516829617965" duration="591000" />
       <workItem from="1517256034751" duration="571000" />
-      <workItem from="1519007591571" duration="3490000" />
+      <workItem from="1519007591571" duration="5460000" />
+      <workItem from="1519526177707" duration="1890000" />
     </task>
     <task id="LOCAL-00001" summary="some css changes">
       <created>1509872261012</created>
@@ -529,11 +469,18 @@
       <option name="project" value="LOCAL" />
       <updated>1514385638956</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="some changes">
+      <created>1519011225962</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1519011225962</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="126302000" />
+    <option name="totallyTimeSpent" value="130162000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -546,17 +493,16 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21558245" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21255673" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3120915" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28267974" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -580,7 +526,8 @@
     <MESSAGE value="final Changes" />
     <MESSAGE value="final Changes1" />
     <MESSAGE value="changes to integrate client with server" />
-    <option name="LAST_COMMIT_MESSAGE" value="changes to integrate client with server" />
+    <MESSAGE value="some changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="some changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -865,14 +812,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/styles/main.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="553" column="17" lean-forward="false" selection-start-line="553" selection-start-column="17" selection-end-line="553" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/images/pins/Caution.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -883,34 +822,26 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/modules/Dashboard/pages/LatestDevice.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2958">
-          <caret line="179" column="44" lean-forward="false" selection-start-line="179" selection-start-column="44" selection-end-line="179" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/modules/Dashboard/pages/GraphView.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1207">
-          <caret line="90" column="15" lean-forward="false" selection-start-line="90" selection-start-column="10" selection-end-line="90" selection-end-column="15" />
+        <state relative-caret-position="6800">
+          <caret line="404" column="51" lean-forward="false" selection-start-line="404" selection-start-column="46" selection-end-line="404" selection-end-column="51" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/modules/Dashboard/Dashboard.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="530">
-          <caret line="237" column="41" lean-forward="false" selection-start-line="237" selection-start-column="41" selection-end-line="237" selection-end-column="41" />
+        <state relative-caret-position="51">
+          <caret line="311" column="18" lean-forward="false" selection-start-line="311" selection-start-column="18" selection-end-line="311" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/modules/Map/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2057">
-          <caret line="194" column="9" lean-forward="false" selection-start-line="194" selection-start-column="9" selection-end-line="194" selection-end-column="9" />
+        <state relative-caret-position="68">
+          <caret line="62" column="44" lean-forward="false" selection-start-line="62" selection-start-column="26" selection-end-line="62" selection-end-column="44" />
           <folding>
             <marker date="1519010663977" expanded="true" signature="2752:2770" ph="..." />
             <marker date="1519010663977" expanded="true" signature="2827:2842" ph="..." />
@@ -919,6 +850,22 @@
             <marker date="1519010663977" expanded="true" signature="3038:3056" ph="..." />
             <marker date="1519010663977" expanded="true" signature="3113:3128" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/modules/Dashboard/pages/LatestDevice.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="191" column="0" lean-forward="false" selection-start-line="191" selection-start-column="0" selection-end-line="191" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/styles/main.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="964" column="2" lean-forward="false" selection-start-line="964" selection-start-column="2" selection-end-line="964" selection-end-column="2" />
+          <folding />
         </state>
       </provider>
     </entry>

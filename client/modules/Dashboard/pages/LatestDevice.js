@@ -190,12 +190,6 @@ export default class LatestDevice extends Component {
                     </div></div>
             </div>
 
-            <div className="gases-details">
-              <div className="row">
-             This pump has a healthy stroke rate of 30 per L.
-              </div>
-            </div>
-
           </div>
           <div className="col-sm-8 col-xs-12 remove-padding" style={{padding: '20px'}}>
             {

@@ -189,6 +189,7 @@ export default class LatestDevice extends Component {
                         </div>
                     </div></div>
             </div>
+              <div className="pump_photo"><img src={"/assets/images/pump_"+latestDevice.deviceId+".jpg"} /></div>
 
           </div>
           <div className="col-sm-8 col-xs-12 remove-padding" style={{padding: '20px'}}>

@@ -46,10 +46,10 @@ export default class Dashboard extends Component {
 
   getState() {
     return {
-        gte: moment().subtract(7, 'days').unix(),
-        lte:moment().unix(),
-        fromDate:moment().subtract(7, 'days').format('Do/MM/YYYY'),
-        toDate:moment().format('Do/MM/YYYY'),
+        gte: 1519948800-7*86400,
+        lte:1519948800,
+        fromDate:"26/02/2018",
+        toDate:"02/03/2018",
       markers: [],
       realTimeData: [],
       analyticsData: [],
@@ -153,11 +153,11 @@ export default class Dashboard extends Component {
   closePanel() {
 
       this.setState({
-          gte: moment().subtract(7, 'days').unix(),
-          lte: moment().unix(),
+          gte: 1519948800-7*86400,
+          lte: 1519948800,
           dataUnit: "daily",
-          fromDate: moment().subtract(7, 'days').format('Do/MM/YYYY'),
-          toDate: moment().format('Do/MM/YYYY')
+          fromDate: "26/02/2018",
+          toDate: "02/03/2018"
       });
     this.setState({show_panel: false})
   }

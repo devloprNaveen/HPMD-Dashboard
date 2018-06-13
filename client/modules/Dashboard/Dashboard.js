@@ -290,7 +290,7 @@ export default class Dashboard extends Component {
 
   handleDownload(){
     if (typeof window !== 'undefined') {
-      window.open('http://ec2-18-220-175-111.us-east-2.compute.amazonaws.com/dashboard/issue_dump', '_self');
+      window.open(config1.baseURL+'/dashboard/issue_dump', '_self');
     }
   }
   render() {
@@ -529,23 +529,23 @@ export default class Dashboard extends Component {
                 }
                 <div className="footer">
                   <span className="pumpicon">
-                    <span><img src="http://ec2-18-220-175-111.us-east-2.compute.amazonaws.com:8080/assets/images/pins/Up.png" className="legend-icon" /></span>
+                    <span><img src={config1.baseURL+":8080/assets/images/pins/Up.png"} className="legend-icon" /></span>
                     <span>Pump Functional</span>
                   </span>
                   <span className="pumpicon">
-                    <span><img src="http://ec2-18-220-175-111.us-east-2.compute.amazonaws.com:8080/assets/images/pins/Caution.png" className="legend-icon" /></span>
+                    <span><img src={config1.baseURL+":8080/assets/images/pins/Caution.png"} className="legend-icon" /></span>
                     <span>Needs Attention</span>
                   </span>
                   <span className="pumpicon">
-                    <span><img src="http://ec2-18-220-175-111.us-east-2.compute.amazonaws.com:8080/assets/images/pins/Alarm.png" className="legend-icon" /></span>
+                    <span><img src={config1.baseURL+":8080/assets/images/pins/Alarm.png"} className="legend-icon" /></span>
                     <span>Pump Off</span>
                   </span>
                   <span className="pumpicon">
-                    <span><img src="http://ec2-18-220-175-111.us-east-2.compute.amazonaws.com:8080/assets/images/pins/Repair.png" className="legend-icon" /></span>
+                    <span><img src={config1.baseURL+":8080/assets/images/pins/Repair.png"} className="legend-icon" /></span>
                     <span>Pump Repair</span>
                   </span>
                   <span className="pumpicon">
-                    <span><img src="http://ec2-18-220-175-111.us-east-2.compute.amazonaws.com:8080/assets/images/icons/Sensor.png" className="legend-icon" /></span>
+                    <span><img src={config1.baseURL+":8080/assets/images/icons/Sensor.png"} className="legend-icon" /></span>
                     <span>Sensor Offline</span>
                   </span>
                 </div>

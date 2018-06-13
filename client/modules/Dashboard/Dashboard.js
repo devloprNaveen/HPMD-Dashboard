@@ -19,7 +19,7 @@ var config ={
 var config1={
 
     baseURL1:"http://localhost:3000",
-    baseURL : 'http://hpmd.cayaconstructs.com'
+    baseURL : 'http://ec2-13-58-107-251.us-east-2.compute.amazonaws.com'
 };
 
 export default class Dashboard extends Component {

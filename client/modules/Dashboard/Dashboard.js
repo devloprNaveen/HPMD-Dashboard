@@ -18,8 +18,8 @@ var config ={
 };
 var config1={
 
-    baseURL1:"http://localhost:3000",
-    baseURL : 'http://ec2-18-220-175-111.us-east-2.compute.amazonaws.com'
+    baseURL:"http://localhost:3000",
+    baseURL1 : 'http://ec2-18-220-175-111.us-east-2.compute.amazonaws.com'
 };
 
 export default class Dashboard extends Component {
@@ -46,8 +46,8 @@ export default class Dashboard extends Component {
 
   getState() {
     return {
-        gte: 1519948800-7*86400,
-        lte:1519948800,
+        gte: Date.now()/1000-7*86400,
+        lte:Date.now()/1000,
         fromDate:"26/02/2018",
         toDate:"02/03/2018",
       markers: [],
@@ -153,8 +153,8 @@ export default class Dashboard extends Component {
   closePanel() {
 
       this.setState({
-          gte: 1519948800-7*86400,
-          lte: 1519948800,
+          gte: Date.now()/1000-7*86400,
+          lte: Date.now()/1000,
           dataUnit: "daily",
           fromDate: "26/02/2018",
           toDate: "02/03/2018"

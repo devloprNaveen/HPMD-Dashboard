@@ -49,6 +49,7 @@ export default class Dashboard extends Component {
       realTimeData: [],
       analyticsData: [],
       city: '',
+      village: '',
       show_panel: false,
       active_tab: 'home',
       disable_tab: true,
@@ -66,7 +67,8 @@ export default class Dashboard extends Component {
       no_records: false,
       iscity_changed: false,
       city_list: [],
-        state_list:[],
+      state_list:[],
+      villageList: [],
       marker_id: '',
       windowWidth: '',
       pumpDetails:{},
@@ -119,7 +121,16 @@ export default class Dashboard extends Component {
   }
 
   changeCities(e) {
-    this.setState({city: e.target.value, iscity_changed: true})
+    this.setState({city: e.target.value, iscity_changed: true});
+    axios.get(`http://hpmd.cayaconstructs.com/data/get_villages?district_id=${e.target.value}&state_id=${this.state.stateid}`).then(function (response) {
+      if(response) {
+        console.log('the village response is', response);
+          this.setState({villageList: response.data})
+      }
+    }.bind(this))
+        .catch(function (error) {
+            console.log(error);
+        });
   }
 
   changeDataUnit(unit){
@@ -131,7 +142,10 @@ export default class Dashboard extends Component {
   }
   changeStates(e){
 
-      this.setState({stateid: e.target.value, isstate_changed: true})
+      this.setState({stateid: e.target.value, isstate_changed: true});
+      if(e.target.value === "-1") {
+        this.setState({ city: "-1", village: "-1" });
+      }
 
       axios.get('/dashboard/get_district?state_id='+e.target.value,config1).then(function (response) {
           if(response) {
@@ -141,7 +155,6 @@ export default class Dashboard extends Component {
           .catch(function (error) {
               console.log(error);
           });
-
   }
 
   openPanel() {
@@ -410,7 +423,7 @@ export default class Dashboard extends Component {
                 />
 
                 <div className="select-cities-box">
-                  <FormGroup controlId="formControlsSelect">
+                  <FormGroup className="flex" controlId="formControlsSelect">
                     <FormControl componentClass="select" placeholder="select" ref="cityList" className="select-cities"
                                  onChange={this.changeStates}>
                       <option value="-1">Select State</option>
@@ -423,7 +436,7 @@ export default class Dashboard extends Component {
                       }
 
                     </FormControl>
-                    <FormControl componentClass="select" placeholder="select" ref="cityList" className="select-cities"
+                    {this.state.stateid && this.state.stateid !== "-1" && <FormControl componentClass="select" placeholder="select" ref="cityList" className="select-cities"
                                  onChange={this.changeCities}>
                       <option value="">Select District</option>
                         {
@@ -434,7 +447,19 @@ export default class Dashboard extends Component {
                             })
                         }
 
-                    </FormControl>
+                    </FormControl>}
+                    {this.state.city && this.state.city !== "-1" && <FormControl componentClass="select" placeholder="select" ref="cityList" className="select-cities"
+                                 onChange={this.changeVillage}>
+                      <option value="">Select Village</option>
+                        {
+                            this.state.villageList.map((element, index)=> {
+                                return (
+                                    <option key={index} value={index}>{element.name}</option>
+                                )
+                            })
+                        }
+
+                    </FormControl>}
                   </FormGroup>
                 </div>
 

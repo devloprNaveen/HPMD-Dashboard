@@ -192,31 +192,29 @@ export default class LatestDevice extends Component {
           </div>
           <div className="col-sm-8 col-xs-12 remove-padding" style={{padding: '20px'}}>
             {
-              // this.state.activeGraph === 'graphview'
-              // ?
-              //   <GraphView
-              //     analysisData={this.props.analysisData}
-              //     time={this.props.realtimeData[0].payload.d.t}
-              //     activeGraph = {this.state.activeGraph}
-              //     changeGraphData = {this.changeGraphData}
-              //     fromDate={this.props.fromDate}
-              //     changeDataUnit={this.props.changeDataUnit}
-              //     dataUnit={this.props.dataUnit}
-              //     gte={this.state.gte}
-              //     lte={this.state.lte}
-              //     toDate={this.props.toDate}
-              //     id={this.props.markerId}
-              //     emptyDate = {this.props.emptyDate}
-              //   />
-              // :
-              //   <CalendarView
-              //     changeGraphData = {this.changeGraphData}
-              //     activeGraph = {this.state.activeGraph}
-              //     markerId={this.props.markerId}
-              //     pumpId={this.props.pumpId}
-              //   />
-                <iframe src="https://docs.google.com/spreadsheets/d/1lslGZelYcMKSRpab85Ds1tU0H5PfJaQmNthSlMp1IDQ/edit?usp=sharing" width="100%" height="300px">
-                </iframe>
+              this.state.activeGraph === 'graphview'
+              ?
+                <GraphView
+                  analysisData={this.props.analysisData}
+                  time={this.props.realtimeData[0].payload.d.t}
+                  activeGraph = {this.state.activeGraph}
+                  changeGraphData = {this.changeGraphData}
+                  fromDate={this.props.fromDate}
+                  changeDataUnit={this.props.changeDataUnit}
+                  dataUnit={this.props.dataUnit}
+                  gte={this.state.gte}
+                  lte={this.state.lte}
+                  toDate={this.props.toDate}
+                  id={this.props.markerId}
+                  emptyDate = {this.props.emptyDate}
+                />
+              :
+                <CalendarView
+                  changeGraphData = {this.changeGraphData}
+                  activeGraph = {this.state.activeGraph}
+                  markerId={this.props.markerId}
+                  pumpId={this.props.pumpId}
+                />
             }
 
           </div>

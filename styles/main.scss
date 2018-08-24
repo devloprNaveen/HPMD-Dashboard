@@ -1,3 +1,93 @@
+.flex {
+  display: flex;
+}
+.margin-right-20 {
+  margin-right: 20px;
+}
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #323941;
+  padding: 10px;
+  .flex-equally-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  img {
+    height: 24px;
+  }
+  .pump-header {
+    font-size: 14px;
+    color: #00b3bf;
+    font-weight: 600;
+    margin-left: 10px;
+  }
+  .pump-stats {
+    color: #FFFFFF;
+    font-size: 12px;
+    margin-left: 8px;
+  }
+  i {
+    color: #FFFFFF;
+  }
+}
+.pumpStatusPopUp{
+  height: 400px;
+}
+.view-pump-stats {
+  background: #22272C;
+  border: 20px solid #464f56;
+  padding: 10px;
+  width: 900px;
+  .filter-by-date {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    align-items: center;
+    .data-table {
+      font-size: 12px;
+      font-weight: 600;
+      color: #FFFFFF;
+    }
+    .download {
+      background: #00b3bf;
+      color: #FFFFFF;
+      font-size: 12px;
+      padding: 5px;
+      border-radius: 5px;
+      outline: none;
+      border: none;
+    }
+    .dtpicker {
+      top: 0px;
+      i {
+        padding: 0px 5px;
+      }
+    }
+  }
+  .google-sheet-iframe {
+    padding: 0px 32px 32px 32px;
+  }
+}
+div.footer {
+  text-align: center;
+  line-height: 30px;
+  width: 60%;
+  background: #423d3d;
+  position: fixed;
+  height: 95px;
+  left: 20%;
+  display: flex;
+  bottom: 1%;
+  justify-content: space-around;
+}
+.pumpStatusPopUp{
+  position: absolute;
+  top: 0;
+  right: 0;
+}
 .satisfactory{
 
   color:#7ec092;
@@ -614,31 +704,13 @@ progress[value="10"]:after {
 #chart-info-dropdown .caret{
   margin-left: 20px;
 }
-div.footer {
-  padding: 10px 10px;
-  text-align: center;
-  line-height: 30px;
-  width: 50%;
-  height: 50px;
-  background: #000;
-  position: fixed;
-  bottom: 0px;
-  left: 50%;
-  margin-left: -25%;
-}
 .pumpicon {
-  /* height: 70%; */
-  /* vertical-align: middle; */
-  /* margin-top: 3%; */
-  /* height: 100%; */
   display: inline-block;
-  /* vertical-align: bottom; */
   text-align: center;
   color: white;
-  margin-right: 15px;
   font-size:12px;
-
-  /* margin-left: 10px; */
+  width: 20%;
+  border-right: 1px solid;
 }
 #class-list1{
     text-align: center;
@@ -646,7 +718,6 @@ div.footer {
 }
 img.legend-icon {
   height: 30px;
-  margin-right: 5px;
 }
 span#info-window-head-last-updated {
 
@@ -1490,7 +1561,25 @@ td.rdtYear:hover {
     width: auto !important;
   }
 }
-
+.icon-selected{
+  border: 5px solid #807b7b;
+  height: 95px !important;
+}
+.footer-pump-icons{
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  height: 100px;
+  .pump-count-style{
+    font-size: 25px;
+  }
+  .pump-name-style{
+    font-size: 12px;
+    white-space: nowrap;
+    font-weight: 700;
+    margin-left: 5px;
+  }
+}
 @import "mobilePanel/panel";
 @import "partials/iframe";
 @import "partials/navbar";

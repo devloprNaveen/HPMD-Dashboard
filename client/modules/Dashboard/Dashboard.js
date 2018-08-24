@@ -9,18 +9,12 @@ import Map from '../Map/index'
 import Datetime from 'react-datetime'
 import moment from 'moment'
 import axios from 'axios'
-
-
+import ViewPumpStatus from './pages/ViewPumpStats';
+const config1={
+  baseURL1:"http://localhost",
+  baseURL : 'http://ec2-13-58-107-251.us-east-2.compute.amazonaws.com'
+};
 let toDate, fromDate
-var config ={
-  baseURL : 'https://openenvironment.p.mashape.com',
-  headers: {'X-Mashape-Key':'SPmv0Z46zymshRjsWckXKsA09OBrp14RCeSjsniWIpRk6llTuk'},
-};
-var config1={
-
-    baseURL1:"http://localhost:3000",
-    baseURL : 'http://ec2-13-58-107-251.us-east-2.compute.amazonaws.com'
-};
 
 export default class Dashboard extends Component {
   constructor(props) {
@@ -42,6 +36,7 @@ export default class Dashboard extends Component {
     this.handleDownload = this. handleDownload.bind(this)
     this.emptyDate = this.emptyDate.bind(this);
     this.changeDataUnit=this.changeDataUnit.bind(this);
+    this.closeViewPumpStatPanel = this.closeViewPumpStatPanel.bind(this);
   }
 
   getState() {
@@ -74,6 +69,9 @@ export default class Dashboard extends Component {
         state_list:[],
       marker_id: '',
       windowWidth: '',
+      pumpDetails:{},
+      selectPumpType: '',
+      googleSheetUrl: '',
     }
   }
 
@@ -293,6 +291,93 @@ export default class Dashboard extends Component {
       window.open(config1.baseURL+'/dashboard/issue_dump', '_self');
     }
   }
+
+  getPumpCount(countType){
+    let pumps;
+    switch(countType){
+        case 'Pump Functional':
+        pumps = this.state.markers.filter(marker => {
+            return marker.pumpCondition === 'Good';
+          })
+          break;
+        case 'Needs Attention':
+        pumps = this.state.markers.filter(marker => {
+            return marker.pumpCondition === 'needsAttention';
+          })
+          break;
+        case 'Pump Off':
+        pumps = this.state.markers.filter(marker => {
+            return marker.pumpCondition === 'pumpOff';
+          })
+          break;
+        case 'Pump Repair':
+        pumps = this.state.markers.filter(marker => {
+            return marker.pumpCondition === 'pumpRepair';
+          })
+          break;
+        case 'Sensor Offline':
+        pumps = this.state.markers.filter(marker => {
+            return marker.pumpCondition === 'sensorOffline';
+          })
+          break;
+        default:
+            return [];
+    }
+    return pumps.length;
+  }
+
+  handleFooterPumpOnclick(pumpType) {
+    let pumps;
+    let pumpDetails = {
+      totalWaterConsumption: 0,
+      totalWaterLevel: 0,
+      totalPeopleUsed: 0,
+    };
+    let googleSheetUrl ='';
+    switch(pumpType){
+        case 'Pump Functional':
+        googleSheetUrl='https://docs.google.com/spreadsheets/d/1lslGZelYcMKSRpab85Ds1tU0H5PfJaQmNthSlMp1IDQ/htmlembed/sheet?gid=0';
+        pumps = this.state.markers.filter(marker => {
+            return marker.pumpCondition === 'Good';
+          })
+          break;
+        case 'Needs Attention':
+        pumps = this.state.markers.filter(marker => {
+            return marker.pumpCondition === 'needsAttention';
+          })
+          googleSheetUrl='https://docs.google.com/spreadsheets/d/1lslGZelYcMKSRpab85Ds1tU0H5PfJaQmNthSlMp1IDQ/htmlembed/sheet?gid=0';
+          break;
+        case 'Pump Off':
+        pumps = this.state.markers.filter(marker => {
+            return marker.pumpCondition === 'pumpOff';
+          })
+          googleSheetUrl='https://docs.google.com/spreadsheets/d/1lslGZelYcMKSRpab85Ds1tU0H5PfJaQmNthSlMp1IDQ/htmlembed/sheet?gid=0';
+          break;
+        case 'Pump Repair':
+        pumps = this.state.markers.filter(marker => {
+            return marker.pumpCondition === 'pumpRepair';
+          })
+          googleSheetUrl='https://docs.google.com/spreadsheets/d/1lslGZelYcMKSRpab85Ds1tU0H5PfJaQmNthSlMp1IDQ/htmlembed/sheet?gid=0';
+          break;
+        case 'Sensor Offline':
+        pumps = this.state.markers.filter(marker => {
+            return marker.pumpCondition === 'sensorOffline';
+          })
+          googleSheetUrl='https://docs.google.com/spreadsheets/d/1lslGZelYcMKSRpab85Ds1tU0H5PfJaQmNthSlMp1IDQ/htmlembed/sheet?gid=0';
+          break;
+        default:
+            return [];        
+    }
+    pumps.map(individualPumps => {
+      pumpDetails.totalWaterConsumption += parseInt(individualPumps.waterConsumption.slice(0,individualPumps.waterConsumption.length - 1), 10);
+      pumpDetails.totalWaterLevel += parseInt(individualPumps.waterLevel.slice(0,individualPumps.waterLevel.length - 1), 10);
+      pumpDetails.totalPeopleUsed += individualPumps.peopleUsed;
+    })
+    this.setState(() => ({pumpDetails: pumpDetails, selectPumpType: pumpType, googleSheetUrl}));
+  }
+  closeViewPumpStatPanel() {
+    this.setState(() => ({selectPumpType: ''}));
+  }
   render() {
 
     return (
@@ -309,6 +394,7 @@ export default class Dashboard extends Component {
             :
             <div>
               <Navbar />
+              {console.log("inside dashboard", this.state.markers)}
               <section className="dashboard">
                 <Map
                   markers={this.state.markers}
@@ -506,7 +592,6 @@ export default class Dashboard extends Component {
                                   <LatestDevice
                                     analysisData={this.state.analyticsData}
                                     realtimeData={this.state.realTimeData}
-
                                     markerId={this.state.marker_id}
                                     pumpId={this.state.id}
                                     fromDate={this.state.fromDate}
@@ -527,33 +612,83 @@ export default class Dashboard extends Component {
                     null
 
                 }
-                <div className="footer">
-                  <span className="pumpicon">
-                    <span><img src={config1.baseURL+":8080/assets/images/pins/Up.png"} className="legend-icon" /></span>
-                    <span>Pump Functional</span>
+                { this.state.selectPumpType.length > 0 && <div className="pumpStatusPopUp">
+                <div className="panel-header">
+            <div className="flex">
+                <img src={config1.baseURL1+":8080/assets/images/allPump.png"} />
+                <div className="pump-header">All Pumps</div>
+            </div>
+            <div className="flex-equally-center">
+                <div className="flex-equally-center margin-right-20">
+                    <img src={config1.baseURL1+":8080/assets/images/village_small.png"} />
+                    <div className="pump-stats">{this.state.pumpDetails.totalWaterConsumption}L</div>
+                </div>
+                <div className="flex-equally-center margin-right-20">
+                    <i className="fa fa-people_used" aria-hidden="true"></i>
+                    <div className="pump-stats">{this.state.pumpDetails.totalPeopleUsed}</div>
+                </div>
+                <div className="flex-equally-center">
+                    <i className="fa fa-water_consumption" aria-hidden="true"></i>
+                    <div className="pump-stats">{this.state.pumpDetails.totalWaterLevel}M</div>
+                </div>
+            </div>
+            <div className="col-sm-1 col-xs-1 text-right close-panel" onClick={this.closeViewPumpStatPanel}>
+                <i className="fa fa-close"></i>
+            </div>
+        </div>
+                    <ViewPumpStatus googleSheetUrl={this.state.googleSheetUrl}/>
+                  </div>
+                }
+                <div className="footer footer-pumps-container">
+                  <span className="pumpicon pumpicon-hover">
+                    <div className = {this.state.selectPumpType == 'Pump Functional' ? "footer-pump-icons icon-selected" : "footer-pump-icons"} role='presentation' onClick={ e => this.handleFooterPumpOnclick('Pump Functional')}>
+                      <span className="pump-count-style">{this.getPumpCount('Pump Functional')}</span>
+                      <div>  
+                        <span><img src={config1.baseURL+":8080/assets/images/pins/Up.png"} className="legend-icon" /></span>
+                        <span className="pump-name-style">Pump Functional</span>
+                      </div>
+                    </div>
                   </span>
-                  <span className="pumpicon">
-                    <span><img src={config1.baseURL+":8080/assets/images/pins/Caution.png"} className="legend-icon" /></span>
-                    <span>Needs Attention</span>
+                  <span className="pumpicon pumpicon-hover">
+                    <div className={this.state.selectPumpType === 'Needs Attention' ? "footer-pump-icons icon-selected" : "footer-pump-icons"} role='presentation' onClick={ e => this.handleFooterPumpOnclick('Needs Attention')}>
+                      <span className="pump-count-style">{this.getPumpCount('Needs Attention')}</span>
+                      <div>
+                        <span><img src={config1.baseURL+":8080/assets/images/pins/Caution.png"} className="legend-icon" /></span>
+                        <span className="pump-name-style">Needs Attention</span>
+                      </div>
+                    </div>
                   </span>
-                  <span className="pumpicon">
-                    <span><img src={config1.baseURL+":8080/assets/images/pins/Alarm.png"} className="legend-icon" /></span>
-                    <span>Pump Off</span>
+                  <span className="pumpicon pumpicon-hover">
+                    <div className={this.state.selectPumpType === 'Pump Off' ? "footer-pump-icons icon-selected" : "footer-pump-icons"} role='presentation' onClick={ e => this.handleFooterPumpOnclick('Pump Off')}>
+                      <span className="pump-count-style">{this.getPumpCount('Pump Off')}</span>
+                      <div>
+                        <span><img src={config1.baseURL+":8080/assets/images/pins/Alarm.png"} className="legend-icon" /></span>
+                        <span className="pump-name-style">Pump Off</span>
+                      </div>
+                    </div>
                   </span>
-                  <span className="pumpicon">
-                    <span><img src={config1.baseURL+":8080/assets/images/pins/Repair.png"} className="legend-icon" /></span>
-                    <span>Pump Repair</span>
+                  <span className="pumpicon pumpicon-hover">
+                    <div className={this.state.selectPumpType === 'Pump Repair' ? "footer-pump-icons icon-selected" : "footer-pump-icons"} role='presentation' onClick={ e => this.handleFooterPumpOnclick('Pump Repair')}>
+                      <span className="pump-count-style">{this.getPumpCount('Pump Repair')}</span>
+                      <div>
+                        <span><img src={config1.baseURL+":8080/assets/images/pins/Repair.png"} className="legend-icon" /></span>
+                        <span className="pump-name-style">Pump Repair</span>
+                      </div>
+                    </div>
                   </span>
-                  <span className="pumpicon">
-                    <span><img src={config1.baseURL+":8080/assets/images/icons/Sensor.png"} className="legend-icon" /></span>
-                    <span>Sensor Offline</span>
+                  <span className="pumpicon pumpicon-hover">
+                    <div className={this.state.selectPumpType === 'Sensor Offline' ? "footer-pump-icons icon-selected" : "footer-pump-icons"} role='presentation' onClick={ e => this.handleFooterPumpOnclick('Sensor Offline')}>
+                      <span className="pump-count-style">{this.getPumpCount('Sensor Offline')}</span>
+                      <div>
+                        <span><img src={config1.baseURL+":8080/assets/images/icons/Sensor.png"} className="legend-icon" /></span>
+                        <span className="pump-name-style">Sensor Offline</span>
+                      </div>
+                    </div>
                   </span>
                 </div>
               </section>
             </div>
         }
-
-
       </div>
     )
   }
